@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e5f8e8">
+
+  <title>Таза Қазақстан — Ашық тәрбие сағаты</title>
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div id="scene" class="scene theme-meadow"
+       aria-hidden="true"></div>
+
+  <header class="header">
+    <div class="header-inner">
+
+      <button class="brand" onclick="showHome()">
+        <span class="brand-mark">✿</span>
+        <span class="brand-name">
+          <strong>ТАЗА ҚАЗАҚСТАН</strong>
+          <small>АШЫҚ ТӘРБИЕ САҒАТЫ · 1-КУРС</small>
+        </span>
+      </button>
+
+      <nav class="nav">
+        <button onclick="showHome()">Басты бет</button>
+        <button onclick="showSlide(0)">Түсіндірме</button>
+        <button onclick="showGame(0)">Ойын</button>
+      </nav>
+
+      <div class="header-tools">
+        <span id="phase" class="phase">ТҮСІНДІРУ</span>
+        <span id="clock" class="clock">15:00</span>
+
+        <button id="timerToggle"
+                class="icon-btn"
+                onclick="toggleTimer()"
+                title="Таймер">
+          ▶
+        </button>
+
+        <button class="icon-btn"
+                onclick="toggleFullscreen()"
+                title="Толық экран">
+          ⛶
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main id="app" class="app"></main>
+
+  <footer class="footer">
+    <span>ТАБИҒАТ · ТАЗАЛЫҚ · ЖАУАПКЕРШІЛІК</span>
+    <span>BY <strong>DARKHAN</strong></span>
+  </footer>
+</body>
+</html>
