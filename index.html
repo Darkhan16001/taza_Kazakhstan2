@@ -3,12 +3,13 @@
 <html lang="kk">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport"
-        content="width=device-width, initial-scale=1">
+        content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color" content="#eaf3ff">
+  <meta name="theme-color" content="#e6f8e8">
 
-  <title>Адал азамат — Ашық тәрбие сағаты</title>
+  <title>Таза Қазақстан | BY DARKHAN</title>
 
   <link rel="preconnect"
         href="https://fonts.googleapis.com">
@@ -18,81 +19,80 @@
         crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+
   <script src="script.js" defer></script>
 </head>
 
 <body>
 
-  <div id="scene"
-       class="scene theme-gold"
-       aria-hidden="true"></div>
+  <!-- ЖАСЫЛ ТАБИҒАТ ФОНЫ -->
+  <div class="nature-background"></div>
 
+  <!-- ЖОҒАРҒЫ МӘЗІР -->
   <header class="header">
 
-    <div class="header-inner">
+    <button class="brand" onclick="showHome()">
+      <span class="logo">✿</span>
 
-      <button class="brand" onclick="showHome()">
-        <span class="brand-icon">✦</span>
+      <span class="brand-text">
+        <strong>ТАЗА ҚАЗАҚСТАН</strong>
+        <small>АШЫҚ ТӘРБИЕ САҒАТЫ · 1-КУРС</small>
+      </span>
+    </button>
 
-        <span>
-          <strong>АДАЛ АЗАМАТ</strong>
-          <small>АШЫҚ ТӘРБИЕ САҒАТЫ · 1-КУРС</small>
-        </span>
+    <nav class="navigation">
+
+      <button onclick="showHome()">
+        Басты бет
       </button>
 
-      <nav class="navigation">
-        <button onclick="showHome()">
-          Басты бет
-        </button>
+      <button onclick="showSlide(0)">
+        Түсіндірме
+      </button>
 
-        <button onclick="showSlide(0)">
-          Түсіндірме
-        </button>
+      <button onclick="showGame(0)">
+        Командалық ойын
+      </button>
 
-        <button onclick="showGame(0)">
-          Ойын
-        </button>
-      </nav>
+    </nav>
 
-      <div class="header-tools">
+    <div class="header-tools">
 
-        <span id="timer" class="timer">
-          25:00
-        </span>
+      <span id="phase">ТҮСІНДІРУ</span>
 
-        <button id="timerBtn"
-                class="square-btn"
-                onclick="toggleTimer()"
-                title="Таймер">
-          ▶
-        </button>
+      <strong id="clock">15:00</strong>
 
-        <button class="square-btn"
-                onclick="fullScreen()"
-                title="Толық экран">
-          ⛶
-        </button>
+      <button class="icon-button"
+              id="timerButton"
+              onclick="toggleTimer()"
+              title="Таймерді тоқтату немесе бастау">
+        ▶
+      </button>
 
-      </div>
+      <button class="icon-button"
+              onclick="toggleFullscreen()"
+              title="Толық экран">
+        ⛶
+      </button>
 
     </div>
 
   </header>
 
-  <main id="app" class="app"></main>
+  <!-- БЕТТЕРДІ JAVASCRIPT АУЫСТЫРАДЫ -->
+  <main id="app"></main>
 
+  <!-- АВТОР -->
   <footer class="footer">
     <span>
-      АДАЛДЫҚ · ӘДІЛДІК · ЖАУАПКЕРШІЛІК
+      ТАБИҒАТ · ТАЗАЛЫҚ · ЖАУАПКЕРШІЛІК
     </span>
 
-    <span>
-      CREATED BY <strong>DARKHAN</strong>
-    </span>
+    <strong>BY DARKHAN</strong>
   </footer>
 
 </body>
