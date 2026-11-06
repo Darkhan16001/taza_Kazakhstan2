@@ -1,566 +1,571 @@
 
 "use strict";
 
-/* ==========================================
-   АДАЛ АЗАМАТ
+/* ======================================
+   ТАЗА ҚАЗАҚСТАН
    BY DARKHAN
-   15 СЛАЙД + 15 ОЙЫН
-========================================== */
+====================================== */
 
 const app = document.getElementById("app");
-const scene = document.getElementById("scene");
 
-const cityPhoto =
-  "https://commons.wikimedia.org/wiki/Special:FilePath/Night_at_Esil_District%2C_Astana_%28P1190721%29.jpg?width=1200";
+const natureImage =
+  "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=90";
+
+/* ТАБИҒАТ ФОТОЛАРЫ */
 
 const photos = [
-  "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85",
-  "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=85",
-  "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85",
-  "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1200&q=85",
-  "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=85",
-  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=85",
-  "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=85"
+  "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1497436072909-f5e4be235be5?auto=format&fit=crop&w=1200&q=85"
 ];
 
-/* ==========================================
-   15 ТҮСІНДІРМЕ СЛАЙДЫ
-========================================== */
+/*
+  ВИДЕО:
+  YouTube ID мәндерін өзің тексерген
+  қысқа қазақша видеолардың ID-леріне
+  ауыстыра аласың.
+*/
+
+const videos = [
+  {
+    id: "wPCDk-oJnhU",
+    title: "Таза Қазақстан — экологиялық бастама",
+    intro: "Табиғатты қорғау мен тазалық мәдениеті туралы бейнематериалды тамашалаймыз.",
+    outro: "Қоршаған ортаны қорғау әр адамның күнделікті жауапкершілігінен басталады."
+  },
+  {
+    id: "pNhJXlpoF_c",
+    title: "Елімізді бірге таза етейік",
+    intro: "Тазалық шараларына қатысу және қоршаған ортаға ұқыпты қарау туралы бейнематериалды көреміз.",
+    outro: "Таза орта қалыптастыру үшін ортақ жауапкершілік пен тұрақты әрекет қажет."
+  },
+  {
+    id: "Qypp5k7qLpw",
+    title: "Экологиялық мәдениет",
+    intro: "Табиғат пен адам арасындағы байланысты қарастырамыз.",
+    outro: "Табиғатты сақтау — болашақ ұрпақ алдындағы ортақ міндет."
+  }
+];
+
+/* ======================================
+   15 СЛАЙД
+====================================== */
 
 const slides = [
   {
     type: "speech",
-    theme: "gold",
-    title: "Адал азамат деген кім?",
+    title: "Таза Қазақстан дегеніміз не?",
     text: `Қайырлы күн, құрметті ұстаздар және студенттер!
 
-Бүгінгі ашық тәрбие сағатымыздың тақырыбы — «Адал азамат».
+Бүгінгі ашық тәрбие сағатымыздың тақырыбы — «Таза Қазақстан».
 
-Адал азамат — сөзіне берік, ісіне жауапты, айналасындағы адамдарға құрметпен қарайтын және қоғамға пайдасын тигізуге ұмтылатын тұлға.
+«Таза Қазақстан» — қоршаған ортаны қорғауға, елді мекендер мен табиғи аумақтардың тазалығын сақтауға және экологиялық мәдениетті дамытуға бағытталған бастама.
 
-Адалдық тек шындықты айтумен шектелмейді. Ол әділ шешім қабылдаудан, уәдеге берік болудан және өз қатесін мойындаудан көрінеді.
+Тазалық тек қоқыс жинаумен шектелмейді.
 
-Біз болашақ маман ретінде осы қасиеттерді бүгіннен бастап қалыптастыруымыз қажет.`
+Ол су мен энергияны үнемдеуден, табиғатқа қамқорлық жасаудан және қоғамдық кеңістікті таза ұстаудан басталады.
+
+Әр азаматтың күнделікті пайдалы әрекеті қоршаған ортаның жағдайын жақсартуға көмектеседі.
+
+Бүгін табиғатты қорғаудың маңызын, нақты әрекеттерді және экологиялық жауапкершілікті талқылаймыз.`
   },
 
   {
     type: "gallery",
-    theme: "sky",
-    title: "Адалдық күнделікті өмірде",
+    title: "Қазақстанның жасыл табиғаты",
     images: [
       photos[0],
-      photos[1],
-      photos[2]
-    ]
-  },
-
-  {
-    type: "video",
-    theme: "blue",
-    title: "Адамгершілік және кісілік",
-    videoId: "VnuB3V_N2-8",
-    videoTitle: "Әрекет. Кісілік кішілікпен келеді",
-    intro: "Адамгершілік пен сыйластық туралы тәрбиелік бейнероликті тамашалаймыз. Адамдардың әрекеттеріне назар аударайық.",
-    outro: "Адамның шынайы болмысы оның жасаған ісінен көрінеді. Жақсылық пен сыйластық қоғамдағы сенімді нығайтады."
-  },
-
-  {
-    type: "speech",
-    theme: "purple",
-    title: "Ар-ождан және шыншылдық",
-    text: `Ар-ождан — адамның жақсы мен жаманды ажыратып, өз әрекетіне жауапкершілікпен қарауы.
-
-Адамның шынайы мінезі оны ешкім бақыламай тұрған кезде де көрінеді.
-
-Мысалы, студент бақылау жұмысын өз күшімен орындаса, бұл оның академиялық адалдығын көрсетеді.
-
-Шыншыл адам қателігін жасырмай, оны түзетуге әрекет етеді.
-
-Адалдық адамдар арасындағы сенімді қалыптастырады.`
-  },
-
-  {
-    type: "gallery",
-    theme: "green",
-    title: "Әділдік және тең мүмкіндік",
-    images: [
       photos[2],
-      photos[3],
-      photos[5]
+      photos[4]
+    ]
+  },
+
+  {
+    type: "video",
+    title: "Таза Қазақстан бастамасы",
+    video: videos[0]
+  },
+
+  {
+    type: "speech",
+    title: "Экологиялық мәдениет",
+    text: `Экологиялық мәдениет — адамның табиғатқа саналы әрі жауапкершілікпен қарауы.
+
+Бұл мәдениет күнделікті әрекеттерден қалыптасады.
+
+Мысалы, орманға немесе тауға демалуға барғанда қоқысты жинап кету, өсімдіктерді зақымдамау және қауіпсіздік ережелерін сақтау қажет.
+
+Сонымен бірге суды, қағазды және электр энергиясын ұқыпты пайдалану маңызды.
+
+Экологиялық мәдениеті жоғары адам тек өзіне ғана емес, қоғам мен болашақ ұрпаққа да жауапкершілікпен қарайды.
+
+Табиғатты қорғау үлкен бастамалардан ғана емес, тұрақты жақсы әдеттерден басталады.`
+  },
+
+  {
+    type: "gallery",
+    title: "Орман мен жасыл желек",
+    images: [
+      photos[1],
+      photos[6],
+      photos[8]
     ]
   },
 
   {
     type: "speech",
-    theme: "peach",
-    title: "Жауапкершілік және тәртіп",
-    text: `Жауапкершілік — қабылдаған міндетті уақытында және сапалы орындау.
+    title: "Қалдықтарды сұрыптау",
+    text: `Қалдықтарды сұрыптау — пайдаланылған материалдарды түріне қарай бөлек жинау.
 
-Мысалы, студент топтық жобада өз міндетін орындауға уәде берсе, оның әрекеті бүкіл команданың нәтижесіне әсер етеді.
+Мысалы, қағаз, пластик, шыны және металл қалдықтарын арнайы талаптарға сәйкес бөлуге болады.
 
-Жауапты адам уақытын жоспарлайды, қиындық туындаса, шешімін іздейді және өз қатесін мойындайды.
+Сұрыптау қайта өңдеуге жарамды материалдарды жинауды жеңілдетеді.
 
-Тәртіп — тек ережеге бағыну емес, өз мақсатыңа жүйелі түрде ұмтылу.
+Алайда қалдықтардың барлығы қайта өңделе бермейді.
 
-Бұл қасиеттер болашақ маман үшін өте маңызды.`
+Сондықтан ең алдымен артық тұтынуды азайтып, жарамды заттарды қайта пайдалану пайдалы.
+
+Колледждерде қалдықтарды сұрыптау туралы түсіндіру жұмыстарын ұйымдастыру экологиялық мәдениетті дамытуға көмектеседі.`
   },
 
   {
     type: "gallery",
-    theme: "gold",
-    title: "Адал еңбек — жарқын болашақ",
+    title: "Таза табиғат",
     images: [
       photos[3],
-      photos[4],
-      photos[6]
-    ]
-  },
-
-  {
-    type: "speech",
-    theme: "blue",
-    title: "Заң және тәртіп",
-    text: `Заң — қоғамдағы адамдардың құқықтары мен қауіпсіздігін қорғауға бағытталған ережелер жүйесі.
-
-Әр азамат өзінің құқықтарын ғана емес, міндеттерін де білуі қажет.
-
-Мысалы, студенттің білім алуға құқығы бар. Сонымен бірге ол басқа студенттердің оқуына кедергі келтірмеуі керек.
-
-Заң мен тәртіпті сақтау — қоғамға және айналамыздағы адамдарға құрмет көрсету.
-
-Адал азамат өзгенің құқығын да сыйлайды.`
-  },
-
-  {
-    type: "gallery",
-    theme: "sky",
-    title: "Бірлік және ынтымақ",
-    images: [
       photos[5],
-      photos[0],
+      photos[10]
+    ]
+  },
+
+  {
+    type: "speech",
+    title: "Су — тіршілік көзі",
+    text: `Су — адамдар, жануарлар және өсімдіктер үшін қажет табиғи ресурс.
+
+Суды үнемдеу әр азаматтың күнделікті әрекетінен басталады.
+
+Мысалы, қажетсіз ағып тұрған кранды жабу, ақаулы құрылғылар туралы жауапты мамандарға хабарлау және суды ұқыпты пайдалану маңызды.
+
+Өзендер мен көлдерге қоқыс тастау табиғи ортаға зиян келтіруі мүмкін.
+
+Су ресурстарын қорғау — табиғат пен болашақ ұрпақ алдындағы жауапкершіліктің белгісі.`
+  },
+
+  {
+    type: "gallery",
+    title: "Көлдер мен өзендер",
+    images: [
+      photos[7],
+      photos[9],
       photos[2]
     ]
   },
 
   {
     type: "video",
-    theme: "purple",
-    title: "Академиялық адалдық",
-    videoId: "HTial6_WvHA",
-    videoTitle: "Академиялық адалдық",
-    intro: "Білім алу кезінде адал болудың маңызын қарастырамыз. Бейнероликтегі әрекеттерге назар аударыңыздар.",
-    outro: "Білімнің шынайы нәтижесі өз еңбегімізден қалыптасады. Академиялық адалдық — болашақ кәсіби жауапкершіліктің негізі."
+    title: "Елімізді бірге таза етейік",
+    video: videos[1]
   },
 
   {
     type: "speech",
-    theme: "green",
-    title: "Цифрлық мәдениет",
-    text: `Қазіргі уақытта интернет күнделікті өміріміздің маңызды бөлігіне айналды.
+    title: "Таза ауа және қоршаған орта",
+    text: `Таза ауа — адам денсаулығы мен өмір сапасының маңызды шарты.
 
-Цифрлық мәдениет — ақпаратты дұрыс пайдалану, жеке деректерді қорғау және интернетте адамдармен сыйластық сақтау.
+Қалалардағы ауа сапасына көлік қозғалысы, өндіріс және басқа факторлар әсер етуі мүмкін.
 
-Мысалы, күмәнді жаңалықты тексермей тарату басқа адамдарды шатастыруы мүмкін.
+Қоғамдық көлікті пайдалану, энергияны үнемдеу және экологиялық талаптарды сақтау қоршаған ортаны қорғауға көмектеседі.
 
-Сондықтан ақпараттың дұрыстығын тексеру қажет.
+Жасыл желекті сақтау мен табиғи аумақтарды қорғаудың да маңызы зор.
 
-Адал азамат интернетте де жауапкершілік пен әдептілікті сақтайды.`
+Таза ауа — қоғамның барлық мүшесіне қажет ортақ құндылық.`
   },
 
   {
     type: "gallery",
-    theme: "peach",
-    title: "Мейірімділік пен сыйластық",
+    title: "Жасыл болашақ",
     images: [
-      photos[0],
-      photos[4],
-      photos[5]
-    ]
-  },
-
-  {
-    type: "speech",
-    theme: "gold",
-    title: "Жемқорлыққа қарсы мәдениет",
-    text: `Жемқорлық қоғамдағы әділдікке және адамдардың бір-біріне деген сеніміне зиян келтіреді.
-
-Адал азамат жеке пайдасы үшін әділетсіз артықшылық алуды дұрыс деп санамайды.
-
-Мысалы, студенттік байқауда жеңімпаз таныстықпен емес, нақты еңбек нәтижесімен анықталуы керек.
-
-Әділ бағалау және ашық шешім қабылдау — жемқорлыққа қарсы мәдениеттің маңызды бөлігі.
-
-Адал қоғам әр адамның күнделікті дұрыс таңдауынан басталады.`
-  },
-
-  {
-    type: "gallery",
-    theme: "green",
-    title: "Таза қоғам — жарқын болашақ",
-    images: [
-      photos[4],
-      photos[1],
+      photos[11],
+      photos[3],
       photos[6]
     ]
   },
 
   {
+    type: "speech",
+    title: "Жасыл колледж",
+    text: `Экологиялық мәдениет өзіміз оқитын колледжден басталады.
+
+Аудиторияны таза ұстау, электр энергиясын қажетсіз пайдаланбау және қағазды үнемдеу — қарапайым әрі пайдалы әрекеттер.
+
+Колледж ішінде қалдықтарды сұрыптауға арналған түсіндіру материалдарын орналастыруға болады.
+
+Студенттер көгалдандыру және тазалық бастамаларына қатыса алады.
+
+Сонымен қатар баспа материалдарын алдын ала мұқият тексеру қағаздың артық шығынын азайтуы мүмкін.
+
+Маңыздысы — тазалықты бір күндік шара емес, күнделікті мәдениетке айналдыру.`
+  },
+
+  {
+    type: "gallery",
+    title: "Болашақ ұрпаққа таза табиғат",
+    images: [
+      photos[4],
+      photos[10],
+      photos[0]
+    ]
+  },
+
+  {
     type: "video",
-    theme: "gold",
-    title: "Жақсылық пен адамгершілік",
-    videoId: "44faK2PEU_Q",
-    videoTitle: "Үмітіңді үзбе!",
-    intro: "Түсіндірме бөлімінің соңында адамгершілік пен қолдаудың маңызын көрсететін тәрбиелік бейнероликпен танысамыз.",
-    outro: "Бүгінгі сабақтың қорытындысы: адал азамат шыншыл, әділ, еңбекқор және жауапты болуы керек. Енді осы құндылықтарды командалық ойын арқылы тексереміз."
+    title: "Экологиялық мәдениет",
+    video: videos[2]
   }
 ];
 
-/* ==========================================
-   3 КОМАНДА
-========================================== */
+/* ======================================
+   ҮШ КОМАНДА
+====================================== */
 
 const teams = [
-  "Бірлік",
-  "Әділдік",
-  "Жауапкершілік"
+  "Жасыл әлем",
+  "Таза табиғат",
+  "Эко болашақ"
 ];
 
-/* ==========================================
-   15 ОЙЫН
-========================================== */
+/* ======================================
+   15 АУЫЗША ТАПСЫРМА
+====================================== */
 
-const games = [
+const questions = [
   {
-    title: "Адал шешім",
-    question: "Студент жоғалған телефон тауып алды. Қандай әрекет дұрыс?",
-    options: [
-      "Өзінде қалдыру",
-      "Иесін тауып қайтару",
-      "Досына беру",
-      "Елемеу"
-    ],
-    correct: 1,
-    explanation: "Бөтен мүлікті иесіне қайтару — адал әрекеттің белгісі."
+    title: "Пластикті азайту",
+    question: "Колледжде бір реттік пластик бөтелкелерді азайту үшін қандай екі нақты ұсыныс жасар едіңдер?",
+    answer: `Біріншіден, көп рет қолданылатын су бөтелкелерін пайдалануға болады.
+
+Екіншіден, қауіпсіз ауызсу құюға арналған орын ұйымдастыруды ұсынуға болады.
+
+Бұл бір реттік бөтелкелердің қолданылуын азайтуға көмектеседі.`
   },
 
   {
-    title: "Әділ баға",
-    question: "Топтық жобада студенттердің еңбегі әртүрлі болды. Нәтиже қалай бағалануы тиіс?",
-    options: [
-      "Таныстықпен",
-      "Кездейсоқ",
-      "Нақты еңбегімен",
-      "Тек жетекшіге қарап"
-    ],
-    correct: 2,
-    explanation: "Әділ бағалау нақты еңбек пен белгіленген өлшемдерге сүйенеді."
+    title: "Қалдықтарды сұрыптау",
+    question: "Қағаз, пластик және шыны қалдықтарын бөлек жинаудың қандай артықшылықтары бар?",
+    answer: `Материалдарды бөлек жинау оларды қайта өңдеуге дайындауды жеңілдетеді.
+
+Бұл жарамды материалдардың басқа қалдықтармен араласуын азайтады.
+
+Сұрыптау кезінде жергілікті қабылдау талаптарын сақтау қажет.`
   },
 
   {
-    type: "case",
-    title: "Досыңа адал көмектес",
-    question: "Досың бақылау жұмысында дайын жауап сұрады. Оған адал жолмен қалай көмектесуге болады?",
-    criteria: [
-      "Адал шешім ұсыну",
-      "Көмектесудің нақты жолын айту",
-      "Таңдауды түсіндіру"
-    ],
-    explanation: "Дайын жауапты көшіртіп берудің орнына тақырыпты түсінуге көмектесу — дұрыс шешім."
+    title: "Колледждегі тазалық",
+    question: "Студенттер сұрыптау жәшіктерін дұрыс пайдаланбайды. Бұл мәселені қалай шешуге болады?",
+    answer: `Жәшіктерге түсінікті белгілер орналастыру керек.
+
+Түсіндіру жұмыстарын өткізіп, қалдықтарды қайда тастау керектігін мысалмен көрсетуге болады.
+
+Жиналған материалдарды тиісті орынға жеткізу де ұйымдастырылуы керек.`
   },
 
   {
-    title: "Құқық пен міндет",
-    question: "Өз құқығымызды пайдалану кезінде нені ескеру қажет?",
-    options: [
-      "Өзгенің пікірін елемеу",
-      "Тек өз пайдаңды ойлау",
-      "Ортақ ережені бұзу",
-      "Өзгенің құқығын құрметтеу"
-    ],
-    correct: 3,
-    explanation: "Әр адамның құқығы басқа адамдардың құқығымен қатар құрметтелуі керек."
+    title: "Энергияны үнемдеу",
+    question: "Сабақтан кейін жарық пен компьютерлер қосулы қалды. Мұндай жағдайды қалай болдырмауға болады?",
+    answer: `Қауіпсіз түрде өшіруге болатын құрылғыларды тексеру тәртібін енгізуге болады.
+
+Жауапты кезекшіні белгілеп, қысқа тексеру тізімін дайындауға болады.
+
+Барлық әрекет колледждің қауіпсіздік талаптарына сай болуы қажет.`
   },
 
   {
-    title: "Ақпаратты тексер",
-    question: "Интернеттен күмәнді жаңалық көрдің. Қандай әрекет дұрыс?",
-    options: [
-      "Сенімді дереккөзден тексеру",
-      "Бірден барлығына жіберу",
-      "Тақырыбына қарап сену",
-      "Ойдан мәлімет қосу"
-    ],
-    correct: 0,
-    explanation: "Ақпаратты таратпас бұрын оның дұрыстығын тексеру қажет."
+    title: "Табиғаттағы демалыс",
+    question: "Демалыстан кейін достарың табиғатта қоқыс қалдырды. Қандай әрекет дұрыс болады?",
+    answer: `Қоқыстың табиғатқа зиян келтіруі мүмкін екенін түсіндіру қажет.
+
+Қалдықтарды бірге жинап, тиісті қабылдау орнына жеткізу ұсынылады.
+
+Мәселені өзара сыйластықпен шешкен дұрыс.`
   },
 
   {
-    type: "case",
-    title: "Командадағы келіспеушілік",
-    question: "Екі студенттің арасында келіспеушілік туындап, ортақ жұмыс тоқтады. Жағдайды қалай шешуге болады?",
-    criteria: [
-      "Екі тарапты тыңдау",
-      "Әділ шешім ұсыну",
-      "Ортақ келісімге келу"
-    ],
-    explanation: "Келіспеушілікті өзара құрметпен және ашық сөйлесу арқылы шешуге болады."
+    title: "Ағаш отырғызу",
+    question: "Ағаш отырғызғаннан кейін оның жақсы өсуі үшін қандай жұмыстар жасалуы керек?",
+    answer: `Ағаштың түріне және ауа райына сәйкес күтім жасау қажет.
+
+Суару, көшеттің жағдайын бақылау және зақымданудан қорғау маңызды.
+
+Тұрақты күтімге жауапты адамдар белгіленуі тиіс.`
   },
 
   {
-    title: "Адал еңбек",
-    question: "Жақсы маман болуға ең көп көмектесетін әрекет қандай?",
-    options: [
-      "Барлығын көшіру",
-      "Қатені жасыру",
-      "Үнемі білім алу және тәжірибе жинау",
-      "Міндеттен қашу"
-    ],
-    correct: 2,
-    explanation: "Білікті маман білім, тәжірибе және жауапты еңбек арқылы қалыптасады."
+    title: "Қаланың ауасы",
+    question: "Қаладағы ауаның ластануын азайтуға студенттер қалай үлес қоса алады?",
+    answer: `Мүмкіндікке қарай қоғамдық көлікті пайдалану, жаяу жүру және энергияны үнемдеу пайдалы.
+
+Экологиялық мәдениетті дамытуға арналған қоғамдық бастамаларға қатысуға болады.`
   },
 
   {
-    title: "Ар-ождан",
-    question: "Ешкім бақыламай тұрғанда ортақ мүлікке қалай қарау керек?",
-    options: [
-      "Елемеу",
-      "Ұқыпты пайдалану",
-      "Рұқсатсыз алып кету",
-      "Бүлдіру"
-    ],
-    correct: 1,
-    explanation: "Шынайы жауапкершілік бақылауға тәуелді емес."
+    title: "Тұрақты тазалық",
+    question: "Колледждегі тазалық шаралары тұрақты болуы үшін қандай жоспар жасау қажет?",
+    answer: `Тазалық кестесін жасап, жауапты адамдарды белгілеуге болады.
+
+Қажетті құралдарды қамтамасыз ету және қалдықтарды уақытында әкету маңызды.
+
+Нәтижені тұрақты бақылау қажет.`
   },
 
   {
-    type: "case",
-    title: "Әділетті байқау",
-    question: "Бір қатысушы таныстық арқылы басқалардан артықшылық алғысы келеді. Әділ шешім ұсыныңдар.",
-    criteria: [
-      "Әділетсіз әрекетті анықтау",
-      "Ортақ бағалау өлшемін ұсыну",
-      "Барлығына тең мүмкіндік беру"
-    ],
-    explanation: "Байқау нәтижесі ортақ, алдын ала белгіленген бағалау өлшемдеріне негізделуі керек."
+    title: "Өзенді қорғау",
+    question: "Өзен жағасында қоқыс жиі жиналады. Мәселенің ұзақ мерзімді шешімін ұсыныңдар.",
+    answer: `Қоқыс жәшіктерін қолайлы орындарға орналастыру және оларды тұрақты босату қажет.
+
+Ақпараттық белгілер қойып, түсіндіру жұмыстарын жүргізуге болады.
+
+Жауапты ұйымдармен бірлескен бақылау маңызды.`
   },
 
   {
-    title: "Жауапкершілік",
-    question: "Студент жобаны уақытында аяқтай алмайтынын білді. Не істегені дұрыс?",
-    options: [
-      "Ештеңе айтпау",
-      "Басқаларды кінәлау",
-      "Жұмысты тастау",
-      "Алдын ала ескертіп, шешім ұсыну"
-    ],
-    correct: 3,
-    explanation: "Қиындық туралы уақытында ескерту — жауапкершіліктің белгісі."
+    title: "Қайта пайдалану",
+    question: "Затты қайта пайдалану мен қайта өңдеудің айырмашылығы қандай? Мысал келтіріңдер.",
+    answer: `Қайта пайдалану — затты өңдемей, бірнеше рет қолдану.
+
+Мысалы, көп рет қолданылатын сөмке.
+
+Қайта өңдеу — қалдық материалды өңдеп, жаңа өнім немесе шикізат алу.
+
+Мысалы, қағаз қалдықтарын қайта өңдеу.`
   },
 
   {
-    title: "Цифрлық мәдениет",
-    question: "Басқа адамның жеке фотосын жариялау алдында қандай әрекет маңызды?",
-    options: [
-      "Келісімін алу",
-      "Лайк санын есептеу",
-      "Әдемі фильтр қою",
-      "Бірден жариялау"
-    ],
-    correct: 0,
-    explanation: "Басқа адамның жеке өмірін және келісімін құрметтеу қажет."
+    title: "Экологиялық тауар",
+    question: "Өнімде «экологиялық таза» деп жазылған. Бұл ақпараттың дұрыстығын қалай тексеруге болады?",
+    answer: `Өндірушінің мәліметтерін және өнімнің құрамын тексеру қажет.
+
+Қажет болса, сертификаттар мен тәуелсіз бағалау мәліметтерін қарастыруға болады.
+
+Тек жарнамалық сөзге сүйенбеу маңызды.`
   },
 
   {
-    type: "case",
-    title: "Таза колледж",
-    question: "Колледждегі тазалық мәдениетін жақсарту үшін үш нақты ұсыныс айтыңдар.",
-    criteria: [
-      "Үш пайдалы ұсыныс айту",
-      "Оларды жүзеге асыру жолын түсіндіру",
-      "Нәтижені бағалау тәсілін ұсыну"
-    ],
-    explanation: "Тазалықты тұрақты әдетке айналдыру үшін нақты жоспар мен ортақ жауапкершілік маңызды."
+    title: "Артық тұтыну",
+    question: "Жұмыс істеп тұрған затты жиі жаңасына ауыстыру қоршаған ортаға қалай әсер етуі мүмкін?",
+    answer: `Жаңа заттарды өндіруге шикізат, энергия және басқа ресурстар қажет.
+
+Ал ескі заттар қалдыққа айналуы мүмкін.
+
+Сондықтан затты жөндеу, қайта пайдалану және қажетсіз сатып алуды азайту пайдалы.`
   },
 
   {
-    title: "Өзара құрмет",
-    question: "Қарсы команда сенің пікіріңмен келіспеді. Қалай әрекет еткен дұрыс?",
-    options: [
-      "Сөзін бөлу",
-      "Кемсіту",
-      "Дәлелін тыңдау",
-      "Жанжалдасу"
-    ],
-    correct: 2,
-    explanation: "Сыйластық қарсы пікірді тыңдап, сабырлы жауап беруден басталады."
+    title: "Мамандық және экология",
+    question: "Болашақ маман ретінде қағаз бен электр энергиясын қалай үнемдер едіңдер?",
+    answer: `Баспа жұмыстарында макетті алдын ала тексеру артық басылымдарды азайтуы мүмкін.
+
+Қағазды тиімді жоспарлау және құрылғыларды қауіпсіз әрі дұрыс пайдалану маңызды.
+
+Ресурстарды үнемдеу кәсіби жауапкершіліктің бір бөлігі.`
   },
 
   {
-    title: "Еріктілік",
-    question: "Еріктілік қызметінің басты мақсаты қандай?",
-    options: [
-      "Міндетті түрде марапат алу",
-      "Қоғамға өз еркімен көмектесу",
-      "Басқалардан жоғары болу",
-      "Тек танымал болу"
-    ],
-    correct: 1,
-    explanation: "Еріктілік — қоғамға өз еркіңмен пайдалы іс жасау."
+    title: "Суды үнемдеу",
+    question: "Колледжде кран ақауланып, су үздіксіз ағып тұр. Қандай қауіпсіз әрекет жасау қажет?",
+    answer: `Ақау туралы жауапты қызметкерге хабарлау керек.
+
+Жөндеу жұмысын тиісті маман орындауы қажет.
+
+Жабдықтарды тұрақты тексеру мұндай мәселелердің алдын алуға көмектеседі.`
   },
 
   {
-    type: "case",
-    title: "Адал азамат манифесі",
-    question: "Команда болып адал азаматтың бес негізгі қағидасын құрастырып, олардың екеуіне өмірден мысал келтіріңдер.",
-    criteria: [
-      "Бес қағида құрастыру",
-      "Кемінде екі нақты мысал келтіру",
-      "Ортақ қорытынды жасау"
-    ],
-    explanation: "Адалдық, әділдік, еңбекқорлық, құрмет және жауапкершілік — саналы азаматқа тән маңызды қасиеттер."
+    title: "Экологиялық жоба",
+    question: "Колледжде бір айда іске асыруға болатын экологиялық жоба ойластырыңдар. Мақсаты, үш қадамы және нәтижесі қандай?",
+    answer: `Мысал: «Қағазды үнемдейтін колледж».
+
+Мақсаты — қажетсіз қағаз шығынын азайту.
+
+Бірінші қадам — қағаздың қай жерде көп жұмсалатынын анықтау.
+
+Екінші қадам — артық басылымдарды азайтуға ұсыныс жасау.
+
+Үшінші қадам — түсіндіру жұмысын өткізу.
+
+Нәтиже қағаз шығынын бұрынғы кезеңмен салыстыру арқылы бағаланады.`
   }
 ];
 
-/* ==========================================
+/* ======================================
+   ҰПАЙ ЖҮЙЕСІ
+====================================== */
+
+const pointOptions = [
+  55, 60, 65, 70, 75,
+  80, 85, 90, 95, 100
+];
+
+const SAVE_KEY = "taza-qazaqstan-darkhan-notepad-v1";
+
+let grades = Array(15).fill(null);
+let revealed = Array(15).fill(false);
+
+/* ======================================
    САЙТ КҮЙІ
-========================================== */
+====================================== */
 
 let view = "home";
 let slideIndex = 0;
 let gameIndex = 0;
-
-let answers = Array(15).fill(null);
-
-let secondsLeft = 25 * 60;
-let timerRunning = false;
-
 let videoPlaying = false;
+
+let phase = "lesson";
+const remaining = {
+  lesson: 900,
+  game: 600
+};
+
+let timerRunning = false;
+let deadline = 0;
 
 let typingFrame = null;
 let fullText = "";
 
-const SAVE_KEY = "adal-azamat-darkhan-v3";
-
-/* ==========================================
+/* ======================================
    ҰПАЙЛАРДЫ САҚТАУ
-========================================== */
+====================================== */
 
-function saveAnswers() {
+function saveProgress() {
   try {
     localStorage.setItem(
       SAVE_KEY,
-      JSON.stringify(answers)
+      JSON.stringify({grades, revealed})
     );
   } catch (error) {
-    // Сақтау қолжетімсіз болса,
-    // ойын жұмысын жалғастырады.
+    console.warn("Ұпай сақтау қолжетімсіз.");
   }
 }
 
-function loadAnswers() {
+function loadProgress() {
   try {
     const saved = JSON.parse(
       localStorage.getItem(SAVE_KEY)
     );
 
-    if (!Array.isArray(saved)) return;
-    if (saved.length !== 15) return;
+    if (!saved) return;
 
-    answers = saved.map((answer, i) => {
-      if (
-        answer === null ||
-        typeof answer !== "object"
-      ) {
-        return null;
-      }
+    if (Array.isArray(saved.grades) &&
+        saved.grades.length === 15) {
 
-      if (
-        ![0,5,10].includes(answer.points)
-      ) {
-        return null;
-      }
+      grades = saved.grades.map(n =>
+        pointOptions.includes(n) ? n : null
+      );
+    }
 
-      if (games[i].type === "case") {
-        return {
-          choice: null,
-          points: answer.points
-        };
-      }
+    if (Array.isArray(saved.revealed) &&
+        saved.revealed.length === 15) {
 
-      if (
-        !Number.isInteger(answer.choice) ||
-        answer.choice < 0 ||
-        answer.choice >= games[i].options.length
-      ) {
-        return null;
-      }
+      revealed = saved.revealed.map(Boolean);
+    }
 
-      return {
-        choice: answer.choice,
-        points:
-          answer.choice === games[i].correct
-            ? 10
-            : 0
-      };
+    grades.forEach((n, i) => {
+      if (n !== null) revealed[i] = true;
     });
 
   } catch (error) {
-    answers = Array(15).fill(null);
+    grades = Array(15).fill(null);
+    revealed = Array(15).fill(false);
   }
 }
 
-/* ==========================================
+/* ======================================
    ТАЙМЕР
-========================================== */
+====================================== */
+
+function formatTime(seconds) {
+  const m = Math.floor(seconds / 60);
+  const s = seconds % 60;
+
+  return (
+    String(m).padStart(2, "0") + ":" +
+    String(s).padStart(2, "0")
+  );
+}
 
 function updateTimer() {
-  const minutes = Math.floor(secondsLeft / 60);
-  const seconds = secondsLeft % 60;
+  document.getElementById("clock").textContent =
+    formatTime(remaining[phase]);
 
-  document.getElementById("timer").textContent =
-    String(minutes).padStart(2,"0") + ":" +
-    String(seconds).padStart(2,"0");
+  document.getElementById("phase").textContent =
+    phase === "lesson" ? "ТҮСІНДІРУ" : "ОЙЫН";
 
-  document.getElementById("timerBtn").textContent =
+  document.getElementById("timerButton").textContent =
     timerRunning ? "Ⅱ" : "▶";
 }
 
-setInterval(() => {
-  if (!timerRunning || secondsLeft <= 0) return;
+function startTimer() {
+  if (timerRunning || remaining[phase] <= 0) return;
+  if (view === "home" || view === "final") return;
 
-  secondsLeft--;
-
-  if (secondsLeft === 0) {
-    timerRunning = false;
-  }
+  timerRunning = true;
+  deadline = Date.now() + remaining[phase] * 1000;
 
   updateTimer();
-},1000);
+}
 
-function startTimer() {
-  if (secondsLeft > 0) {
-    timerRunning = true;
-    updateTimer();
-  }
+function pauseTimer() {
+  if (!timerRunning) return;
+
+  remaining[phase] = Math.max(
+    0,
+    Math.ceil((deadline - Date.now()) / 1000)
+  );
+
+  timerRunning = false;
+  updateTimer();
 }
 
 function toggleTimer() {
-  if (timerRunning) {
-    timerRunning = false;
-  } else {
-    startTimer();
+  if (timerRunning) pauseTimer();
+  else startTimer();
+}
+
+function setPhase(next) {
+  if (phase !== next) {
+    pauseTimer();
+    phase = next;
   }
 
   updateTimer();
 }
 
-function resetTimer() {
-  timerRunning = false;
-  secondsLeft = 25 * 60;
-  updateTimer();
-}
+setInterval(() => {
+  if (!timerRunning) return;
 
-function fullScreen() {
+  remaining[phase] = Math.max(
+    0,
+    Math.ceil((deadline - Date.now()) / 1000)
+  );
+
+  if (remaining[phase] === 0) {
+    timerRunning = false;
+  }
+
+  updateTimer();
+
+}, 250);
+
+function toggleFullscreen() {
   if (!document.fullscreenElement) {
     document.documentElement
       .requestFullscreen?.()
@@ -570,20 +575,15 @@ function fullScreen() {
   }
 }
 
-/* ==========================================
-   КӨМЕКШІЛЕР
-========================================== */
+/* ======================================
+   КӨМЕКШІ ФУНКЦИЯЛАР
+====================================== */
 
-function setTheme(name) {
-  scene.className = "scene theme-" + name;
-}
-
-function progress(current,total) {
+function progress(n, total) {
   return `
     <div class="progress">
       <div class="progress-fill"
-           style="width:${current/total*100}%">
-      </div>
+           style="width:${n / total * 100}%"></div>
     </div>
   `;
 }
@@ -603,16 +603,12 @@ function typeText(text) {
 
   fullText = text.trim();
 
-  if (
-    window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches
-  ) {
+  if (matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches) {
     el.textContent = fullText;
 
-    const btn =
-      document.getElementById("revealText");
-
+    const btn = document.getElementById("showText");
     if (btn) btn.hidden = true;
 
     return;
@@ -621,18 +617,17 @@ function typeText(text) {
   el.textContent = "";
   el.classList.add("typing");
 
-  const start = performance.now();
-  const speed = 120;
+  const begin = performance.now();
 
   function animate(now) {
     if (!el.isConnected) return;
 
     const count = Math.min(
       fullText.length,
-      Math.floor((now - start) / 1000 * speed)
+      Math.floor((now - begin) / 1000 * 130)
     );
 
-    el.textContent = fullText.slice(0,count);
+    el.textContent = fullText.slice(0, count);
 
     if (count < fullText.length) {
       typingFrame = requestAnimationFrame(animate);
@@ -640,9 +635,7 @@ function typeText(text) {
       typingFrame = null;
       el.classList.remove("typing");
 
-      const btn =
-        document.getElementById("revealText");
-
+      const btn = document.getElementById("showText");
       if (btn) btn.hidden = true;
     }
   }
@@ -650,7 +643,7 @@ function typeText(text) {
   typingFrame = requestAnimationFrame(animate);
 }
 
-function revealText() {
+function showFullText() {
   stopTyping();
 
   const el = document.getElementById("typedText");
@@ -660,130 +653,62 @@ function revealText() {
     el.classList.remove("typing");
   }
 
-  const btn = document.getElementById("revealText");
+  const btn = document.getElementById("showText");
   if (btn) btn.hidden = true;
 }
 
-/* ФОТО АШЫЛМАСА */
+/* ======================================
+   СУРЕТ ҚАТЕСІН ӨҢДЕУ
+====================================== */
 
-function imageFallback(img) {
-  const attempt =
-    Number(img.dataset.attempt || 0);
-
-  const backups = [
-    photos[5],
-    photos[6],
+function photoError(img) {
+  const fallback = [
+    photos[10],
+    photos[4],
     photos[1]
   ];
 
-  if (attempt < backups.length) {
-    img.dataset.attempt = String(attempt + 1);
-    img.src = backups[attempt];
-  } else {
+  const attempt =
+    Number(img.dataset.retry || 0);
+
+  if (attempt >= fallback.length) {
     img.onerror = null;
-    img.style.background = "#d5e6f4";
+    img.alt = "Сурет жүктелмеді";
+    return;
   }
+
+  img.dataset.retry = attempt + 1;
+  img.src = fallback[attempt];
 }
 
-/* ==========================================
-   НАВИГАЦИЯ
-========================================== */
+/* ======================================
+   БАСТЫ БЕТ
+====================================== */
 
 function showHome() {
   stopTyping();
-  videoPlaying = false;
+  pauseTimer();
+
   view = "home";
-  render();
-}
-
-function showSlide(index) {
-  stopTyping();
-
-  slideIndex = Math.max(0,Math.min(14,index));
   videoPlaying = false;
-  view = "slide";
-
-  startTimer();
-  render();
-}
-
-function showGame(index) {
-  stopTyping();
-
-  gameIndex = Math.max(0,Math.min(14,index));
-  videoPlaying = false;
-  view = "game";
-
-  startTimer();
-  render();
-}
-
-function nextSlide() {
-  if (slideIndex === 14) {
-    showGame(0);
-  } else {
-    showSlide(slideIndex + 1);
-  }
-}
-
-function previousSlide() {
-  if (slideIndex === 0) {
-    showHome();
-  } else {
-    showSlide(slideIndex - 1);
-  }
-}
-
-function nextGame() {
-  if (gameIndex === 14) {
-    showFinal();
-  } else {
-    showGame(gameIndex + 1);
-  }
-}
-
-function previousGame() {
-  if (gameIndex === 0) {
-    showSlide(14);
-  } else {
-    showGame(gameIndex - 1);
-  }
-}
-
-function render() {
-  if (view === "home") renderHome();
-  if (view === "slide") renderSlide();
-  if (view === "game") renderGame();
-  if (view === "final") renderFinal();
-
-  window.scrollTo(0,0);
-}
-
-/* ==========================================
-   БАСТЫ БЕТ
-========================================== */
-
-function renderHome() {
-  setTheme("gold");
 
   app.innerHTML = `
     <section class="hero page-enter">
 
       <div>
         <div class="eyebrow">
-          ҚҰНДЫЛЫҚ · ПАРАСАТ · ЖАУАПКЕРШІЛІК
+          ТАБИҒАТ · ТАЗАЛЫҚ · ЖАУАПКЕРШІЛІК
         </div>
 
         <h1>
-          АДАЛ<br>
-          <span>АЗАМАТ</span>
+          ТАЗА<br>
+          <span>ҚАЗАҚСТАН</span>
         </h1>
 
         <p>
-          Адал қоғам — саналы ұрпақтан
-          басталады.
+          Жасыл табиғат — жарқын болашақ!
 
-          Бірінші курс студенттеріне арналған
+          1-курс студенттеріне арналған
           интерактивті ашық тәрбие сағаты.
         </p>
 
@@ -805,17 +730,17 @@ function renderHome() {
 
           <div>
             <b>15</b>
-            <small>Түсіндірме слайды</small>
+            <small>Слайд</small>
           </div>
 
           <div>
             <b>3</b>
-            <small>Видео</small>
+            <small>Бейнебөлім</small>
           </div>
 
           <div>
             <b>15</b>
-            <small>Ойын</small>
+            <small>Сұрақ</small>
           </div>
 
           <div>
@@ -829,50 +754,103 @@ function renderHome() {
       <div class="hero-image">
 
         <img
-          src="${cityPhoto}"
-          alt="Астана қаласы"
-          onerror="this.onerror=null;this.src='${photos[4]}'">
+          src="${natureImage}"
+          alt="Жасыл табиғат"
+          data-retry="0"
+          onerror="photoError(this)">
 
         <div class="hero-quote">
-          Адалдық —<br>
-          адамзаттың асыл қасиеті.
+          Табиғатты қорғайық!<br>
+          Болашақты сақтайық!
         </div>
 
       </div>
 
     </section>
   `;
+
+  window.scrollTo(0, 0);
 }
 
-/* ==========================================
-   СЛАЙДТАР
-========================================== */
+/* ======================================
+   НАВИГАЦИЯ
+====================================== */
 
-function slideHeader(slide) {
-  return `
-    <div class="heading-row">
-      <div>
+function showSlide(index) {
+  stopTyping();
+  setPhase("lesson");
 
-        <div class="eyebrow">
-          АДАЛ АЗАМАТ · ТҮСІНДІРМЕ
-        </div>
+  slideIndex = Math.max(
+    0,
+    Math.min(slides.length - 1, index)
+  );
 
-        <h1 class="page-title">
-          ${slide.title}
-        </h1>
+  videoPlaying = false;
+  view = "slide";
 
-      </div>
+  renderSlide();
+  startTimer();
 
-      <span class="chip">
-        ${slideIndex + 1} / 15
-      </span>
-    </div>
-
-    ${progress(slideIndex+1,15)}
-  `;
+  window.scrollTo(0, 0);
 }
 
-function slideControls() {
+function showGame(index) {
+  stopTyping();
+  setPhase("game");
+
+  gameIndex = Math.max(
+    0,
+    Math.min(questions.length - 1, index)
+  );
+
+  videoPlaying = false;
+  view = "game";
+
+  renderGame();
+  startTimer();
+
+  window.scrollTo(0, 0);
+}
+
+function nextSlide() {
+  if (slideIndex === slides.length - 1) {
+    showGame(0);
+  } else {
+    showSlide(slideIndex + 1);
+  }
+}
+
+function previousSlide() {
+  if (slideIndex === 0) {
+    showHome();
+  } else {
+    showSlide(slideIndex - 1);
+  }
+}
+
+function nextGame() {
+  if (grades[gameIndex] === null) return;
+
+  if (gameIndex === questions.length - 1) {
+    showFinal();
+  } else {
+    showGame(gameIndex + 1);
+  }
+}
+
+function previousGame() {
+  if (gameIndex === 0) {
+    showSlide(slides.length - 1);
+  } else {
+    showGame(gameIndex - 1);
+  }
+}
+
+/* ======================================
+   СЛАЙД БАТЫРМАЛАРЫ
+====================================== */
+
+function slideButtons() {
   return `
     <div class="controls">
 
@@ -884,7 +862,7 @@ function slideControls() {
       <button class="btn primary"
               onclick="nextSlide()">
 
-        ${slideIndex === 14
+        ${slideIndex === slides.length - 1
           ? "Ойынға өту →"
           : "Келесі бет →"}
 
@@ -894,421 +872,349 @@ function slideControls() {
   `;
 }
 
+/* ======================================
+   СЛАЙДТАРДЫ ШЫҒАРУ
+====================================== */
+
 function renderSlide() {
   const slide = slides[slideIndex];
 
-  setTheme(slide.theme);
+  let content = "";
 
   if (slide.type === "speech") {
-    renderSpeech(slide);
-  }
 
-  if (slide.type === "gallery") {
-    renderGallery(slide);
-  }
-
-  if (slide.type === "video") {
-    renderVideo(slide);
-  }
-}
-
-/* ТҮСІНДІРМЕ МӘТІНІ */
-
-function renderSpeech(slide) {
-  app.innerHTML = `
-    <div class="page-enter">
-
-      ${slideHeader(slide)}
-
+    content = `
       <section class="card speech-card">
 
-        <span class="presenter-label">
+        <span class="presenter">
           ✦ ТАҚЫРЫПТЫ ТҮСІНДІРУ
         </span>
 
         <h2>${slide.title}</h2>
 
         <div id="typedText"
-             class="presenter-text"></div>
+             class="speech-text"></div>
 
         <div class="actions">
 
-          <button id="revealText"
-                  class="btn"
-                  onclick="revealText()">
+          <button class="btn"
+                  id="showText"
+                  onclick="showFullText()">
             Мәтінді толық ашу
           </button>
 
         </div>
 
       </section>
+    `;
+  }
 
-      ${slideControls()}
+  if (slide.type === "gallery") {
 
-    </div>
-  `;
-
-  typeText(slide.text);
-}
-
-/* ФОТО: ЕШҚАНДАЙ ЖАЗУ ЖОҚ */
-
-function renderGallery(slide) {
-  app.innerHTML = `
-    <div class="page-enter">
-
+    content = `
       <div class="photo-grid">
 
-        ${slide.images.map((src,i) => `
-          <div class="photo-box"
-               style="--i:${i}">
+        ${slide.images.map((src, i) => `
+          <div class="photo" style="--i:${i}">
 
-            <img
-              src="${src}"
-              alt="Сурет ${i+1}"
-              loading="eager"
-              data-attempt="0"
-              onerror="imageFallback(this)">
+            <img src="${src}"
+                 alt="Табиғат суреті ${i + 1}"
+                 loading="eager"
+                 data-retry="0"
+                 onerror="photoError(this)">
 
           </div>
         `).join("")}
 
       </div>
+    `;
+  }
 
-      ${slideControls()}
+  if (slide.type === "video") {
 
-    </div>
-  `;
-}
+    const video = slide.video;
 
-/* ВИДЕО */
+    const player = videoPlaying
+      ? `
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0"
+          title="${video.title}"
+          allow="autoplay;encrypted-media;picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      `
+      : `
+        <div class="video-placeholder">
+          <b>▶</b>
+          <h2>${video.title}</h2>
+          <p>Бейнематериалды бастау</p>
+        </div>
+      `;
 
-function renderVideo(slide) {
-  const id = slide.videoId;
-
-  const embed =
-    "https://www.youtube-nocookie.com/embed/" +
-    id + "?autoplay=1&rel=0";
-
-  const watch =
-    "https://www.youtube.com/watch?v=" + id;
-
-  app.innerHTML = `
-    <div class="page-enter">
-
-      ${slideHeader(slide)}
-
+    content = `
       <section class="card video-card">
 
-        <div class="video-note">
+        <div class="note">
           <strong>БЕЙНЕРОЛИККЕ КІРІСПЕ</strong>
-          <p>${slide.intro}</p>
+          <p>${video.intro}</p>
         </div>
 
         <div class="video-screen">
-
-          ${videoPlaying ? `
-
-            <iframe
-              src="${embed}"
-              title="${slide.videoTitle}"
-              allow="autoplay; encrypted-media; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-
-          ` : `
-
-            <div class="video-poster">
-              <span>▶</span>
-
-              <h2>
-                ${slide.videoTitle}
-              </h2>
-
-              <p>
-                Бейнематериалды бастау
-              </p>
-            </div>
-
-          `}
-
+          ${player}
         </div>
 
         <div class="actions">
 
           <button class="btn primary"
                   onclick="toggleVideo()">
-
             ${videoPlaying
-              ? "■ Видеоны тоқтату"
+              ? "■ Тоқтату"
               : "▶ Видеоны бастау"}
-
           </button>
 
           <a class="btn"
-             href="${watch}"
+             href="https://www.youtube.com/watch?v=${video.id}"
              target="_blank"
              rel="noopener noreferrer">
-
             YouTube-та ашу
-
           </a>
 
         </div>
 
-        <div class="video-note">
-          <strong>БЕЙНЕРОЛИКТІҢ ҚОРЫТЫНДЫСЫ</strong>
-          <p>${slide.outro}</p>
+        <div class="note">
+          <strong>ҚОРЫТЫНДЫ</strong>
+          <p>${video.outro}</p>
         </div>
 
       </section>
-
-      ${slideControls()}
-
-    </div>
-  `;
-}
-
-function toggleVideo() {
-  videoPlaying = !videoPlaying;
-  renderVideo(slides[slideIndex]);
-}
-
-/* ==========================================
-   КОМАНДАЛАРДЫҢ ҰПАЙЫ
-========================================== */
-
-function getScore(team) {
-  return answers.reduce((sum,answer,index) => {
-
-    if (
-      answer !== null &&
-      index % 3 === team
-    ) {
-      return sum + answer.points;
-    }
-
-    return sum;
-
-  },0);
-}
-
-function getAnswered(team) {
-  return answers.filter((answer,index) =>
-    index % 3 === team &&
-    answer !== null
-  ).length;
-}
-
-function renderTeams(activeTeam) {
-  return `
-    <div class="team-board">
-
-      ${teams.map((name,i) => `
-
-        <div class="card team
-          ${activeTeam === i ? "active" : ""}">
-
-          <div>
-            <small>
-              ${i+1}-ТОП · ${getAnswered(i)}/5
-            </small>
-
-            <strong>${name}</strong>
-          </div>
-
-          <span class="team-score">
-            ${getScore(i)}
-          </span>
-
-        </div>
-
-      `).join("")}
-
-    </div>
-  `;
-}
-
-/* ==========================================
-   ОЙЫНДАР
-========================================== */
-
-function renderGame() {
-  const game = games[gameIndex];
-  const team = gameIndex % 3;
-  const answer = answers[gameIndex];
-
-  const themes = [
-    "gold",
-    "blue",
-    "green",
-    "purple",
-    "peach"
-  ];
-
-  setTheme(themes[gameIndex % themes.length]);
-
-  let gameContent = "";
-
-  if (game.type === "case") {
-    gameContent = `
-      <ol class="criteria">
-        ${game.criteria.map(item => `
-          <li>${item}</li>
-        `).join("")}
-      </ol>
-
-      ${answer === null ? `
-
-        <p>
-          Жауап ауызша талқыланады.
-          Бағалау үшін төменнен ұпай таңдаңыз.
-        </p>
-
-        <div class="awards">
-
-          <button class="btn"
-                  onclick="award(0)">
-            0 ұпай
-          </button>
-
-          <button class="btn"
-                  onclick="award(5)">
-            5 ұпай
-          </button>
-
-          <button class="btn primary"
-                  onclick="award(10)">
-            10 ұпай
-          </button>
-
-        </div>
-
-      ` : ""}
-    `;
-  } else {
-    gameContent = `
-      <div class="options">
-
-        ${game.options.map((option,i) => {
-          let cls = "";
-
-          if (answer !== null) {
-            if (i === game.correct) {
-              cls = "correct";
-            } else if (i === answer.choice) {
-              cls = "wrong";
-            }
-          }
-
-          return `
-            <button
-              class="option ${cls}"
-              ${answer !== null ? "disabled" : ""}
-              onclick="choose(${i})">
-
-              ${String.fromCharCode(65+i)}.
-              ${option}
-
-            </button>
-          `;
-        }).join("")}
-
-      </div>
     `;
   }
 
   app.innerHTML = `
     <div class="page-enter">
 
-      <div class="heading-row">
-        <div>
+      ${slide.type === "gallery" ? "" : `
+        <div class="row">
 
-          <div class="eyebrow">
-            КОМАНДАЛЫҚ САЙЫС
+          <div>
+            <div class="eyebrow">
+              ТАЗА ҚАЗАҚСТАН
+            </div>
+
+            <h1>${slide.title}</h1>
           </div>
 
-          <h1 class="page-title">
-            Адалдық алаңы
-          </h1>
+          <span class="chip">
+            ${slideIndex + 1} / ${slides.length}
+          </span>
 
+        </div>
+      `}
+
+      ${progress(slideIndex + 1, slides.length)}
+
+      ${content}
+
+      ${slideButtons()}
+
+    </div>
+  `;
+
+  if (slide.type === "speech") {
+    typeText(slide.text);
+  }
+}
+
+function toggleVideo() {
+  videoPlaying = !videoPlaying;
+  renderSlide();
+}
+
+/* ======================================
+   КОМАНДАЛАРДЫҢ ҰПАЙЫ
+====================================== */
+
+function getScore(teamIndex) {
+  return grades.reduce((total, grade, index) => {
+
+    if (
+      index % teams.length === teamIndex &&
+      grade !== null
+    ) {
+      return total + grade;
+    }
+
+    return total;
+
+  }, 0);
+}
+
+function getAnswered(teamIndex) {
+  return grades.filter((grade, index) =>
+    index % teams.length === teamIndex &&
+    grade !== null
+  ).length;
+}
+
+function renderTeams(activeIndex) {
+  return `
+    <div class="team-board">
+
+      ${teams.map((name, index) => `
+        <section class="card team
+          ${index === activeIndex ? "active" : ""}">
+
+          <div>
+            <small>
+              ${index + 1}-КОМАНДА ·
+              ${getAnswered(index)}/5
+            </small>
+
+            <strong>${name}</strong>
+          </div>
+
+          <span class="team-score">
+            ${getScore(index)}
+          </span>
+
+        </section>
+      `).join("")}
+
+    </div>
+  `;
+}
+
+/* ======================================
+   ОЙЫНДЫ КӨРСЕТУ
+====================================== */
+
+function renderGame() {
+  const q = questions[gameIndex];
+  const team = gameIndex % teams.length;
+
+  const isRevealed = revealed[gameIndex];
+  const grade = grades[gameIndex];
+
+  app.innerHTML = `
+    <div class="page-enter">
+
+      <div class="row">
+
+        <div>
+          <div class="eyebrow">
+            3 КОМАНДА · АУЫЗША САЙЫС
+          </div>
+
+          <h1>Эко ой додасы</h1>
         </div>
 
         <span class="chip">
-          Ойын ${gameIndex+1} / 15
+          ${gameIndex + 1} / ${questions.length}
         </span>
+
       </div>
 
       ${renderTeams(team)}
-      ${progress(gameIndex+1,15)}
 
-      <div class="game-layout">
+      ${progress(gameIndex + 1, questions.length)}
 
-        <section class="card question-card">
+      <div class="game-grid">
+
+        <section class="card">
 
           <span class="chip">
-            ${game.type === "case"
-              ? "ЖАҒДАЯТТЫҚ ТАПСЫРМА"
-              : "ТЕСТ ТАПСЫРМАСЫ"}
+            ОРТАША ДЕҢГЕЙ
           </span>
 
-          <h2>${game.title}</h2>
+          <h2>${q.title}</h2>
 
           <p class="question">
-            ${game.question}
+            ${q.question}
           </p>
 
-          ${gameContent}
+          <p class="hint">
+            Команда жауабын ауызша түсіндіреді.
+            Содан кейін үлгі жауап ашылады.
+          </p>
 
-          ${answer !== null ? `
+          ${!isRevealed ? `
+            <button class="btn primary"
+                    style="width:100%"
+                    onclick="revealAnswer()">
+              👁 Жауапты көру
+            </button>
+          ` : `
 
-            <div class="feedback">
+            <div class="answer-card">
+              <h3>✓ Үлгі жауап</h3>
 
-              <strong>
-                +${answer.points} ұпай
-              </strong>
+              <p>${q.answer}</p>
 
-              <p>${game.explanation}</p>
-
+              <button class="btn"
+                      onclick="hideAnswer()">
+                Жауапты жасыру
+              </button>
             </div>
 
+          `}
+
+          ${isRevealed || grade !== null ? `
+            <h3>Ұпай қою</h3>
+
+            <div class="grades">
+
+              ${pointOptions.map(n => `
+                <button class="grade
+                  ${grade === n ? "selected" : ""}"
+                  aria-pressed="${grade === n}"
+                  onclick="setGrade(${n})">
+                  ${n}
+                </button>
+              `).join("")}
+
+            </div>
+          ` : ""}
+
+          ${grade !== null ? `
+            <div class="feedback">
+              ✓ ${teams[team]} —
+              ${grade} ұпай
+            </div>
           ` : ""}
 
         </section>
 
-        <aside class="card game-side">
+        <aside class="card">
 
           <div class="eyebrow">
             КЕЗЕКТЕГІ КОМАНДА
           </div>
 
-          <h2>${team+1}-ТОП</h2>
+          <h2>${team + 1}-КОМАНДА</h2>
 
           <h3>${teams[team]}</h3>
 
-          <p>
-            Топ мүшелері бірлесіп ойланып,
-            ортақ жауап береді.
+          <p class="hint">
+            Әр командаға 5 сұрақ беріледі.
+            Әр жауап жеке бағаланады.
           </p>
 
-          <p>
-            Тест тапсырмасы — 10 ұпай.
-            Жағдаяттық тапсырма —
-            0, 5 немесе 10 ұпай.
-          </p>
+          <div class="rubric">
+            <strong>Бағалау өлшемі</strong><br>
+            55–65 — жауап толық емес<br>
+            70–80 — негізгі ой дұрыс<br>
+            85–95 — дәлел мен мысал бар<br>
+            100 — толық әрі нақты жауап
+          </div>
 
           <h3>
             Жалпы ұпай: ${getScore(team)}
           </h3>
 
-          ${answer !== null ? `
-
-            <button class="btn"
-                    onclick="redoAnswer()">
-              ↶ Жауапты өзгерту
-            </button>
-
-          ` : ""}
+          <p>
+            Бағаланғаны:
+            ${getAnswered(team)} / 5
+          </p>
 
         </aside>
 
@@ -1322,11 +1228,12 @@ function renderGame() {
         </button>
 
         <button class="btn primary"
-                onclick="nextGame()">
+                onclick="nextGame()"
+                ${grade === null ? "disabled" : ""}>
 
-          ${gameIndex === 14
-            ? "Нәтижені көру →"
-            : "Келесі ойын →"}
+          ${gameIndex === questions.length - 1
+            ? "Қорытынды →"
+            : "Келесі сұрақ →"}
 
         </button>
 
@@ -1334,108 +1241,101 @@ function renderGame() {
 
     </div>
   `;
+
+  window.scrollTo(0, 0);
 }
 
-/* ТЕСТКЕ ЖАУАП БЕРУ */
+/* ======================================
+   ЖАУАПТЫ АШУ / ЖАСЫРУ
+====================================== */
 
-function choose(index) {
-  const game = games[gameIndex];
-
-  if (game.type === "case") return;
-  if (answers[gameIndex] !== null) return;
-
-  const points = index === game.correct ? 10 : 0;
-
-  answers[gameIndex] = {
-    choice: index,
-    points
-  };
-
-  saveAnswers();
+function revealAnswer() {
+  revealed[gameIndex] = true;
+  saveProgress();
   renderGame();
 }
 
-/* ЖАҒДАЯТТЫ БАҒАЛАУ */
-
-function award(points) {
-  const game = games[gameIndex];
-
-  if (game.type !== "case") return;
-  if (![0,5,10].includes(points)) return;
-  if (answers[gameIndex] !== null) return;
-
-  answers[gameIndex] = {
-    choice: null,
-    points
-  };
-
-  saveAnswers();
+function hideAnswer() {
+  revealed[gameIndex] = false;
+  saveProgress();
   renderGame();
 }
 
-/* ЖАУАПТЫ ҚАЙТА БЕРУ */
+/* ======================================
+   ҰПАЙ ҚОЮ
+====================================== */
 
-function redoAnswer() {
-  answers[gameIndex] = null;
-  saveAnswers();
+function setGrade(value) {
+  if (!pointOptions.includes(value)) return;
+
+  if (
+    !revealed[gameIndex] &&
+    grades[gameIndex] === null
+  ) {
+    return;
+  }
+
+  grades[gameIndex] = value;
+
+  saveProgress();
   renderGame();
 }
 
-/* ==========================================
+/* ======================================
    ҚОРЫТЫНДЫ
-========================================== */
+====================================== */
 
 function showFinal() {
   stopTyping();
+  pauseTimer();
 
   view = "final";
-  videoPlaying = false;
-
-  render();
+  renderFinal();
 }
 
 function renderFinal() {
-  setTheme("gold");
-
   const scores = teams.map(
-    (_,index) => getScore(index)
+    (_, index) => getScore(index)
   );
-
-  const totalAnswered = answers.filter(
-    answer => answer !== null
-  ).length;
 
   const maxScore = Math.max(...scores);
 
+  const evaluated = grades.filter(
+    grade => grade !== null
+  ).length;
+
   const winners = teams.filter(
-    (_,index) => scores[index] === maxScore
+    (_, index) => scores[index] === maxScore
   );
+
+  const winnerText =
+    evaluated === 0
+      ? "Әзірге бағаланған жауап жоқ"
+      : evaluated < questions.length
+        ? "Ағымдағы үздік нәтиже: " + winners.join(", ")
+        : "Үздік нәтиже: " + winners.join(", ");
 
   app.innerHTML = `
     <section class="final page-enter">
 
       <div class="eyebrow">
-        АШЫҚ ТӘРБИЕ САҒАТЫНЫҢ ҚОРЫТЫНДЫСЫ
+        ТАЗА ҚАЗАҚСТАН · ҚОРЫТЫНДЫ
       </div>
 
       <h1>
-        АДАЛДЫҚ —<br>
-        <span>БІЗДІҢ ТАҢДАУЫМЫЗ!</span>
+        ТАЗА ТАБИҒАТ —<br>
+        <span>ЖАРҚЫН БОЛАШАҚ!</span>
       </h1>
 
-      <h2>
-        ${totalAnswered === 0
-          ? "Әзірге нәтиже жоқ"
-          : "Үздік нәтиже: " + winners.join(", ")}
-      </h2>
+      <h2>${winnerText}</h2>
 
       <div class="results">
 
-        ${teams.map((name,index) => `
+        ${teams.map((name, index) => `
           <div class="card">
 
             <span class="chip">
-              ${index+1}-ТОП
+              ${index + 1}-КОМАНДА
             </span>
 
             <h3>${name}</h3>
@@ -1443,8 +1343,8 @@ function renderFinal() {
             <b>${getScore(index)}</b>
 
             <p>
-              ${getAnswered(index)}/5
-              тапсырма бағаланды
+              ${getAnswered(index)} / 5
+              сұрақ бағаланды
             </p>
 
           </div>
@@ -1452,92 +1352,122 @@ function renderFinal() {
 
       </div>
 
-      <p class="question">
-        Адалдықты сақтайық,
-        әділдікті құрметтейік!
-      </p>
+      <section class="card">
 
-      <h2>
-        Назарларыңызға рақмет!
-      </h2>
+        <h2>Сабақтың қорытындысы</h2>
 
-      <h1>
-        Сау болыңыздар!
-      </h1>
+        <p style="font-size:21px;line-height:1.8">
+          Қоршаған ортаны қорғау —
+          әр адамның ортақ жауапкершілігі.
 
-      <div class="actions"
-           style="justify-content:center">
+          Табиғатты таза ұстау,
+          суды үнемдеу және
+          ресурстарды ұқыпты пайдалану
+          болашақ үшін маңызды.
+        </p>
 
-        <button class="btn primary"
-                onclick="showHome()">
-          Басты бет
-        </button>
+        <h2>Назарларыңызға рақмет!</h2>
 
-        <button class="btn"
-                onclick="restartGame()">
-          Ойынды қайта бастау
-        </button>
+        <h1>Сау болыңыздар!</h1>
 
-      </div>
+        <div class="actions"
+             style="justify-content:center">
 
-      <h3 style="color:#aa792c;margin-top:40px">
-        BY DARKHAN
-      </h3>
+          <button class="btn primary"
+                  onclick="showHome()">
+            Басты бет
+          </button>
+
+          <button class="btn"
+                  onclick="restartGame()">
+            Ойынды қайта бастау
+          </button>
+
+        </div>
+
+        <h3 style="color:#208449;margin-top:35px">
+          BY DARKHAN
+        </h3>
+
+      </section>
 
     </section>
   `;
+
+  window.scrollTo(0, 0);
 }
 
-/* ОЙЫНДЫ ҚАЙТА БАСТАУ */
+/* ======================================
+   ОЙЫНДЫ ҚАЙТА БАСТАУ
+====================================== */
 
 function restartGame() {
-  const approved = confirm(
+  if (!confirm(
     "Барлық ұпайды өшіріп, ойынды қайта бастаймыз ба?"
-  );
-
-  if (!approved) return;
-
-  answers = Array(15).fill(null);
-
-  saveAnswers();
-  resetTimer();
-
-  showGame(0);
-}
-
-/* ==========================================
-   ПЕРНЕТАҚТА
-========================================== */
-
-document.addEventListener("keydown",event => {
-  const tag = document.activeElement.tagName;
-
-  if (tag === "INPUT" || tag === "TEXTAREA") {
+  )) {
     return;
   }
 
-  if (event.key === "ArrowRight") {
-    if (view === "slide") {
+  grades = Array(15).fill(null);
+  revealed = Array(15).fill(false);
+
+  saveProgress();
+  pauseTimer();
+
+  remaining.game = 600;
+  phase = "game";
+
+  updateTimer();
+  showGame(0);
+}
+
+/* ======================================
+   ПЕРНЕТАҚТА БАСҚАРУ
+====================================== */
+
+document.addEventListener("keydown", event => {
+
+  const tag = document.activeElement?.tagName;
+
+  if (
+    tag === "INPUT" ||
+    tag === "TEXTAREA" ||
+    tag === "SELECT"
+  ) {
+    return;
+  }
+
+  if (view === "slide") {
+
+    if (event.key === "ArrowRight") {
       nextSlide();
-    } else if (view === "game") {
-      nextGame();
+    }
+
+    if (event.key === "ArrowLeft") {
+      previousSlide();
     }
   }
 
-  if (event.key === "ArrowLeft") {
-    if (view === "slide") {
-      previousSlide();
-    } else if (view === "game") {
+  if (view === "game") {
+
+    if (
+      event.key === "ArrowRight" &&
+      grades[gameIndex] !== null
+    ) {
+      nextGame();
+    }
+
+    if (event.key === "ArrowLeft") {
       previousGame();
     }
   }
+
 });
 
-/* ==========================================
-   ІСКЕ ҚОСУ
-========================================== */
+/* ======================================
+   САЙТТЫ ІСКЕ ҚОСУ
+====================================== */
 
-loadAnswers();
+loadProgress();
 updateTimer();
 showHome();
-
