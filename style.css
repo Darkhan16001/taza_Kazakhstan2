@@ -1,20 +1,18 @@
 
-/* =========================================
+/* ===========================================
    ТАЗА ҚАЗАҚСТАН
-   ЖАСЫЛ ТАБИҒАТ · ТАУ · ОРМАН
-   БАРЛЫҚ БАСҚАРУ БАТЫРМАЛАРЫ ОҢ ЖАҚТА
    BY DARKHAN
-========================================= */
+   БАРЛЫҚ КНОПКАЛАР — ОҢ ЖАҚТА
+=========================================== */
 
 :root {
-  --dark: #143d29;
-  --green: #228b50;
-  --green-light: #42b877;
-  --green-soft: #e7f9ec;
-  --white: #ffffff;
-  --muted: #527260;
-  --border: rgba(25, 98, 54, 0.17);
-  --shadow: 0 22px 55px rgba(12, 67, 31, 0.17);
+  --green: #20894b;
+  --dark-green: #123e29;
+  --light-green: #e8f9ed;
+  --text: #173e29;
+  --muted: #537562;
+  --border: #c7e7d1;
+  --shadow: 0 20px 55px rgba(12,65,31,.17);
 }
 
 * {
@@ -28,11 +26,10 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: #d5f1df;
-  color: var(--dark);
   font-family: Manrope, Arial, sans-serif;
   font-weight: 700;
-  -webkit-font-smoothing: antialiased;
+  color: var(--text);
+  background: #d7efdc;
 }
 
 button,
@@ -46,7 +43,7 @@ button {
 
 button:focus-visible,
 a:focus-visible {
-  outline: 3px solid #2c9859;
+  outline: 3px solid #279956;
   outline-offset: 3px;
 }
 
@@ -54,9 +51,9 @@ a:focus-visible {
   display: none !important;
 }
 
-/* =========================================
-   ЖАРЫҚ ЖАСЫЛ ТАБИҒАТ ФОНЫ
-========================================= */
+/* ===========================================
+   ТАУ МЕН ОРМАН ФОНЫ
+=========================================== */
 
 .nature-background {
   position: fixed;
@@ -67,21 +64,16 @@ a:focus-visible {
   background:
     linear-gradient(
       120deg,
-      rgba(238, 255, 236, 0.38),
-      rgba(206, 246, 216, 0.18)
+      rgba(238,255,237,.48),
+      rgba(215,249,222,.22)
     ),
-    url(
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=90"
-    )
-    center center / cover no-repeat;
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=90")
+    center / cover no-repeat;
 }
 
-/* Егер сыртқы фото жүктелмесе,
-   жасыл түсті негізгі фон сақталады. */
-
-/* =========================================
+/* ===========================================
    ЖОҒАРҒЫ МӘЗІР
-========================================= */
+=========================================== */
 
 .header {
   position: sticky;
@@ -96,30 +88,23 @@ a:focus-visible {
   min-height: 80px;
   padding: 12px 3%;
 
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(14px);
-
+  background: rgba(255,255,255,.96);
   border-bottom: 1px solid var(--border);
-
-  box-shadow:
-    0 5px 25px rgba(10,70,30,0.10);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 5px 22px rgba(16,72,38,.11);
 }
 
-/* Логотип сол жақта қалады.
-   Басқару батырмалары оң жақта. */
-
 .brand {
-  border: 0;
-  background: none;
-  padding: 0;
-  margin-right: auto;
-
   display: flex;
   align-items: center;
   gap: 12px;
 
+  margin-right: auto;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--dark-green);
   text-align: left;
-  color: var(--dark);
 }
 
 .logo {
@@ -131,12 +116,9 @@ a:focus-visible {
   flex-shrink: 0;
 
   border-radius: 14px;
-  color: #e6ffad;
-
-  background:
-    linear-gradient(135deg,#32a865,#176f3b);
-
-  font-size: 30px;
+  background: linear-gradient(135deg,#37ab68,#176f3d);
+  color: #eaffb8;
+  font-size: 29px;
 }
 
 .brand-text strong {
@@ -148,22 +130,11 @@ a:focus-visible {
 .brand-text small {
   display: block;
   margin-top: 4px;
-  color: #62806e;
+  color: #66816e;
   font-size: 10px;
-  font-weight: 800;
 }
 
-/* Жоғарғы навигация */
-
-.navigation {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-
-  margin-left: auto;
-}
-
+.navigation,
 .header-tools {
   display: flex;
   align-items: center;
@@ -171,23 +142,23 @@ a:focus-visible {
   gap: 8px;
 }
 
+.navigation {
+  margin-left: auto;
+}
+
 .navigation button,
 .icon-button {
-  border: 1px solid #cae4d2;
-  background: #effaf2;
-  color: #1b6840;
-
+  padding: 10px 13px;
   border-radius: 11px;
-  padding: 11px 13px;
-
+  border: 1px solid var(--border);
+  background: #effaf2;
+  color: #1c6940;
   font-weight: 800;
-  transition: 0.2s ease;
 }
 
 .navigation button:hover,
 .icon-button:hover {
-  background: #d8f1df;
-  transform: translateY(-1px);
+  background: #d7f1e0;
 }
 
 .icon-button {
@@ -196,22 +167,20 @@ a:focus-visible {
 }
 
 #phase {
-  color: #5d7a68;
+  color: var(--muted);
   font-size: 11px;
-  font-weight: 800;
 }
 
 #clock {
-  min-width: 74px;
-  color: #208d4f;
-  font-size: 23px;
+  color: var(--green);
+  font-size: 24px;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
 }
 
-/* =========================================
+/* ===========================================
    НЕГІЗГІ БӨЛІМ
-========================================= */
+=========================================== */
 
 #app,
 .footer {
@@ -222,16 +191,8 @@ a:focus-visible {
 #app {
   max-width: 1500px;
   min-height: calc(100vh - 150px);
-
-  margin: 0 auto;
-  padding: 30px 24px 45px;
-}
-
-.eyebrow {
-  color: #217e4b;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 1.6px;
+  margin: auto;
+  padding: 30px 25px 45px;
 }
 
 h1,
@@ -241,29 +202,46 @@ h3 {
 }
 
 h1 {
-  margin: 13px 0 22px;
-  font-size: clamp(35px, 4.2vw, 64px);
+  margin: 12px 0 23px;
+  color: var(--dark-green);
+  font-size: clamp(35px,4.3vw,64px);
   line-height: 1.16;
 }
 
 h2 {
-  color: #20824b;
-  font-size: clamp(26px, 3vw, 42px);
+  color: #208149;
+  font-size: clamp(26px,3vw,43px);
 }
 
 h3 {
-  color: #1e7342;
+  color: #236944;
+}
+
+.eyebrow {
+  color: #27804c;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
 }
 
 .card {
-  padding: clamp(24px, 3.3vw, 48px);
-
+  padding: clamp(23px,3.4vw,49px);
+  border: 1px solid white;
   border-radius: 27px;
-  background: rgba(255,255,255,0.95);
-  border: 1px solid rgba(255,255,255,0.98);
-
-  backdrop-filter: blur(7px);
+  background: rgba(255,255,255,.96);
   box-shadow: var(--shadow);
+  backdrop-filter: blur(7px);
+}
+
+.chip {
+  display: inline-block;
+  padding: 9px 16px;
+  border-radius: 100px;
+  background: #e7f9ec;
+  border: 1px solid #b4dfc1;
+  color: #227646;
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .row {
@@ -271,183 +249,172 @@ h3 {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 13px;
+  gap: 15px;
 }
 
-.chip {
-  display: inline-block;
-  padding: 9px 16px;
+/* ===========================================
+   БАРЛЫҚ БАТЫРМАЛАРДЫ ОҢҒА ҚОЮ
+=========================================== */
 
-  border-radius: 99px;
-  background: #e8f9ed;
-  border: 1px solid #a9daba;
-
-  color: #1e7442;
-  font-size: 13px;
-  font-weight: 800;
-}
-
-/* =========================================
-   БАРЛЫҚ НЕГІЗГІ БАТЫРМАЛАР ОҢ ЖАҚТА
-========================================= */
+/*
+   Негізгі маңызды бөлік:
+   .actions — басты бет, видео, қорытынды
+   .controls — артқа және келесі бет
+*/
 
 .actions,
 .controls {
   display: flex !important;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: row !important;
   justify-content: flex-end !important;
-
+  align-items: center !important;
+  align-content: flex-end !important;
   flex-wrap: wrap;
-  gap: 13px;
 
-  width: 100%;
-  margin-top: 23px;
+  width: 100% !important;
+  gap: 12px;
+  margin: 23px 0 0 auto !important;
+  text-align: right;
 }
 
-.btn {
-  min-height: 51px;
-  padding: 12px 23px;
+/* Кнопкалардың жалпы дизайны */
 
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+
+  min-height: 52px;
+  padding: 13px 23px;
 
   border-radius: 14px;
-  border: 1px solid #b6dac3;
-
+  border: 1px solid #b9dac5;
   background: white;
-  color: #1b6540;
 
+  color: #1d6340;
   text-decoration: none;
-  font-weight: 800;
   font-size: 15px;
+  font-weight: 800;
 
-  transition:
-    background 0.2s,
-    transform 0.2s,
-    box-shadow 0.2s;
+  transition: background .2s, transform .2s;
 }
 
 .btn:hover:not(:disabled) {
-  background: #e3f7e9;
+  background: #e5f7ea;
   transform: translateY(-2px);
-
-  box-shadow:
-    0 8px 20px rgba(18,94,45,0.10);
 }
 
 .btn.primary {
-  background:
-    linear-gradient(120deg,#43b875,#1d834b);
-
   color: white;
-  border-color: #238e50;
-
-  box-shadow:
-    0 9px 23px rgba(25,128,69,0.18);
+  background: linear-gradient(120deg,#44b877,#1e814a);
+  border-color: #238d51;
 }
 
 .btn.primary:hover:not(:disabled) {
-  background:
-    linear-gradient(120deg,#38a66a,#176e3d);
+  background: #177a43;
 }
 
 .btn:disabled {
-  opacity: 0.55;
+  opacity: .55;
   cursor: default;
   transform: none;
 }
 
-/* Артқа және келесі батырмалары */
+/* Артқа және келесі бет — ОҢ ЖАҚТА */
 
 .controls {
   justify-content: flex-end !important;
 }
 
-.controls .btn:first-child {
+.controls > .btn:first-child {
   order: 1;
 }
 
-.controls .btn:last-child {
+.controls > .btn:last-child {
   order: 2;
 }
 
-/* =========================================
+/* ===========================================
    ПРОГРЕСС
-========================================= */
+=========================================== */
 
 .progress {
   height: 9px;
-  margin: 17px 0 24px;
-
+  margin: 17px 0 23px;
+  border-radius: 100px;
+  background: rgba(255,255,255,.85);
   overflow: hidden;
-  background: rgba(255,255,255,0.83);
-  border-radius: 99px;
 }
 
 .progress-fill {
   height: 100%;
-
-  background:
-    linear-gradient(90deg,#8fe0a9,#1f9252);
-
-  border-radius: 99px;
-  transition: width 0.3s;
+  border-radius: inherit;
+  background: linear-gradient(90deg,#91e4aa,#218f52);
+  transition: width .3s;
 }
 
-/* =========================================
+/* ===========================================
    БАСТЫ БЕТ
-========================================= */
+=========================================== */
 
 .hero {
   min-height: 73vh;
-
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1.05fr .95fr;
   align-items: center;
   gap: 38px;
 }
 
 .hero h1 {
-  font-size: clamp(60px, 7.8vw, 122px);
-  font-weight: 800;
-  letter-spacing: -4px;
+  font-size: clamp(60px,7.7vw,120px);
   line-height: 1.05;
-
-  text-shadow:
-    0 3px 18px rgba(255,255,255,0.85);
+  letter-spacing: -4px;
+  text-shadow: 0 3px 18px #ffffffd9;
 }
 
 .hero h1 span {
-  color: #208d4e;
+  color: #208c4e;
 }
 
 .hero p {
-  max-width: 680px;
-
-  font-size: clamp(19px, 1.8vw, 26px);
+  font-size: clamp(19px,1.8vw,26px);
   line-height: 1.8;
   font-weight: 800;
+  text-shadow: 0 2px 12px #ffffffc7;
+}
 
-  text-shadow:
-    0 2px 12px rgba(255,255,255,0.85);
+/* САБАҚТЫ БАСТАУ — ОҢ ЖАҚТА */
+
+.hero > div:first-child {
+  min-width: 0;
 }
 
 .hero .actions {
+  display: flex !important;
   justify-content: flex-end !important;
+  width: 100% !important;
+  margin-left: auto !important;
+}
+
+/* Екі батырма да оң жақ шетке жиналады */
+
+.hero .actions .btn {
+  flex: 0 0 auto;
+}
+
+/* Егер тек 1 батырма қалса да оң жақта */
+
+.hero .actions .btn:first-child:last-child {
+  margin-left: auto;
 }
 
 .hero-image {
   position: relative;
   height: 500px;
-
-  overflow: hidden;
   border-radius: 28px;
   border: 5px solid white;
-  background: #b9e1c5;
-
+  overflow: hidden;
+  background: #b7e0c3;
   box-shadow: var(--shadow);
 }
 
@@ -456,94 +423,83 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
-  animation:
-    slowZoom 22s ease-in-out infinite alternate;
+  animation: slowZoom 20s ease-in-out infinite alternate;
 }
 
 .hero-quote {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: auto 0 0;
+  padding: 50px 28px 28px;
 
-  padding: 50px 27px 27px;
-
-  background:
-    linear-gradient(
-      0deg,
-      rgba(5,42,22,0.88),
-      transparent
-    );
+  background: linear-gradient(
+    0deg,
+    rgba(7,49,24,.9),
+    transparent
+  );
 
   color: white;
-
-  font-size: clamp(27px, 2.7vw, 41px);
-  font-weight: 800;
+  font-size: clamp(27px,2.6vw,41px);
   line-height: 1.4;
+  font-weight: 800;
 }
 
 .stats {
   display: flex;
-  gap: 28px;
   flex-wrap: wrap;
-
-  margin-top: 27px;
+  gap: 28px;
+  margin-top: 30px;
 }
 
 .stats b {
   display: block;
-  color: #1d8849;
+  color: var(--green);
   font-size: 36px;
 }
 
 .stats small {
-  color: #3e654b;
+  color: #42674f;
   font-size: 13px;
 }
 
-/* =========================================
-   ТҮСІНДІРМЕ
-========================================= */
+/* ===========================================
+   ТҮСІНДІРМЕ БЕТТЕРІ
+=========================================== */
 
 .speech-card {
-  border-top: 7px solid #38af6a;
+  border-top: 7px solid #35ac65;
 }
 
 .presenter {
-  color: #23894d;
+  color: #278552;
   font-size: 14px;
   font-weight: 800;
-  letter-spacing: 0.8px;
+  letter-spacing: .8px;
 }
 
 .speech-text {
-  min-height: 120px;
-
-  color: #193f2c;
-  font-size: clamp(21px, 1.8vw, 28px);
+  min-height: 115px;
+  color: #19432d;
+  font-size: clamp(21px,1.85vw,28px);
+  font-weight: 800;
   line-height: 1.85;
-
   white-space: pre-line;
   overflow-wrap: anywhere;
-  font-weight: 800;
 }
 
 .typing::after {
   content: "▌";
-  color: #2fa25e;
-  animation: blink 0.8s step-end infinite;
+  color: #2ea35d;
+  animation: blink .8s step-end infinite;
 }
 
 @keyframes blink {
-  50% {
-    opacity: 0;
-  }
+  50% { opacity: 0; }
 }
 
-/* МӘТІНДІ ТОЛЫҚ АШУ — ОҢ ЖАҚТА */
+/* МӘТІНДІ ТОЛЫҚ АШУ — ОҢ ЖАҚ */
 
 .speech-card .actions {
+  display: flex !important;
   justify-content: flex-end !important;
 }
 
@@ -552,72 +508,60 @@ h3 {
   margin-right: 0;
 }
 
-/* =========================================
+/* ===========================================
    ФОТОГАЛЕРЕЯ
-========================================= */
+=========================================== */
 
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
+  grid-template-columns: repeat(3,minmax(0,1fr));
   gap: 18px;
 }
 
 .photo {
+  height: min(69vh,650px);
   min-width: 0;
-  height: min(69vh, 650px);
   min-height: 340px;
 
-  overflow: hidden;
-  border-radius: 25px;
   border: 5px solid white;
-
-  background: #c9e8d2;
+  border-radius: 25px;
+  overflow: hidden;
+  background: #c8e8d0;
   box-shadow: var(--shadow);
 
   opacity: 0;
-
-  animation: photoEnter 0.8s ease forwards;
-  animation-delay: calc(var(--i) * 0.28s);
+  animation: photoEnter .8s ease forwards;
+  animation-delay: calc(var(--i) * .27s);
 }
 
 .photo img {
   display: block;
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
-  animation:
-    slowZoom 20s ease-in-out infinite alternate;
+  animation: slowZoom 19s ease-in-out infinite alternate;
 }
 
 @keyframes photoEnter {
   from {
     opacity: 0;
-    transform: translateY(40px) scale(0.93);
+    transform: translateY(40px) scale(.94);
     filter: blur(7px);
   }
-
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
+    transform: none;
+    filter: none;
   }
 }
 
 @keyframes slowZoom {
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(1.075);
-  }
+  to { transform: scale(1.07); }
 }
 
-/* =========================================
-   БЕЙНЕБӨЛІМ
-========================================= */
+/* ===========================================
+   ВИДЕО
+=========================================== */
 
 .video-card {
   max-width: 1050px;
@@ -625,36 +569,36 @@ h3 {
 }
 
 .video-screen {
+  width: 100%;
   aspect-ratio: 16/9;
-
-  border: 4px solid #79c997;
-  border-radius: 19px;
-
-  background: #164a30;
-  overflow: hidden;
 
   display: grid;
   place-items: center;
+
+  border: 4px solid #79c798;
+  border-radius: 19px;
+  background: #174b31;
+  overflow: hidden;
 }
 
 .video-screen iframe,
 .video-screen video {
+  display: block;
   width: 100%;
   height: 100%;
-  display: block;
-  border: 0;
+  border: none;
 }
 
 .video-placeholder {
   padding: 30px;
-  color: white;
   text-align: center;
+  color: white;
 }
 
 .video-placeholder b {
   display: block;
+  color: #ddffbd;
   font-size: 75px;
-  color: #d9ffb5;
 }
 
 .video-placeholder h2 {
@@ -665,36 +609,34 @@ h3 {
   margin: 19px 0;
   padding: 19px 23px;
 
+  border-left: 5px solid #39a968;
   border-radius: 13px;
-  border-left: 5px solid #37ae67;
-  background: #e8f9eb;
+  background: #e8f9ed;
 
   font-size: 19px;
-  line-height: 1.75;
   font-weight: 800;
+  line-height: 1.75;
 }
 
-/* ВИДЕО БАТЫРМАЛАРЫ ОҢ ЖАҚТА */
+/* ВИДЕОНЫ БАСТАУ + YOUTUBE-ТА АШУ
+   ЕКЕУІ ДЕ ОҢ ЖАҚТА */
 
 .video-card .actions {
-  display: flex !important;
   justify-content: flex-end !important;
-  width: 100%;
 }
 
 .video-card .actions .btn {
-  width: auto;
+  width: auto !important;
 }
 
-/* =========================================
-   ОЙЫН КОМАНДАЛАРЫ
-========================================= */
+/* ===========================================
+   КОМАНДАЛАР
+=========================================== */
 
 .team-board {
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
   gap: 14px;
-
   margin-bottom: 22px;
 }
 
@@ -709,7 +651,7 @@ h3 {
 
 .team.active {
   outline: 3px solid #35a565;
-  background: #e6f9eb;
+  background: #e7f9ed;
 }
 
 .team small {
@@ -724,17 +666,17 @@ h3 {
 
 .team-score {
   font-size: 35px;
-  font-weight: 800;
   color: #208a4d;
+  font-weight: 800;
 }
 
-/* =========================================
-   ОЙЫН СҰРАҚТАРЫ
-========================================= */
+/* ===========================================
+   ОЙЫН
+=========================================== */
 
 .game-grid {
   display: grid;
-  grid-template-columns: 1.32fr 0.68fr;
+  grid-template-columns: 1.32fr .68fr;
   gap: 21px;
 }
 
@@ -745,73 +687,66 @@ h3 {
 }
 
 .hint {
+  color: var(--muted);
   font-size: 17px;
   line-height: 1.75;
-  color: var(--muted);
 }
 
-/* ЖАУАПТЫ КӨРУ — ОҢ ЖАҚТА */
+/* ЖАУАПТЫ КӨРУ — ОҢ ЖАҚ */
 
 .game-grid > .card:first-child > .btn {
   display: flex !important;
   width: fit-content !important;
   max-width: 100%;
-
-  margin-left: auto;
-  margin-right: 0;
+  margin-left: auto !important;
+  margin-right: 0 !important;
 }
 
-/* =========================================
-   ҮЛГІ ЖАУАП
-========================================= */
+/* ===========================================
+   ЖАУАП БӨЛІМІ
+=========================================== */
 
 .answer-card {
   margin-top: 20px;
   padding: 22px;
 
+  border: 2px solid #a4d9b6;
   border-radius: 17px;
-  border: 2px solid #a5dcb5;
   background: #e7f9ed;
-
-  animation: appear 0.4s ease both;
 }
 
 .answer-card h3 {
-  margin: 0 0 12px;
   color: #188249;
   font-size: 24px;
+  margin: 0 0 12px;
 }
 
 .answer-card p {
   margin: 0 0 16px;
-
-  white-space: pre-line;
   font-size: clamp(18px,1.5vw,24px);
   line-height: 1.75;
   font-weight: 800;
+  white-space: pre-line;
 }
 
-/* ЖАУАПТЫ ЖАСЫРУ — ОҢ ЖАҚТА */
+/* ЖАУАПТЫ ЖАСЫРУ — ОҢ ЖАҚ */
 
 .answer-card .btn {
   display: flex;
   width: fit-content;
   max-width: 100%;
-
-  margin-left: auto;
-  margin-right: 0;
+  margin-left: auto !important;
+  margin-right: 0 !important;
 }
 
-/* =========================================
-   ҰПАЙ ҚОЮ — ОҢ ЖАҚТА
-========================================= */
+/* ===========================================
+   ҰПАЙ БАТЫРМАЛАРЫ — ОҢ ЖАҚ
+=========================================== */
 
 .grades {
   display: flex !important;
   justify-content: flex-end !important;
-  align-items: center;
   flex-wrap: wrap;
-
   gap: 9px;
   margin-top: 16px;
 }
@@ -819,70 +754,63 @@ h3 {
 .grade {
   min-width: 66px;
   min-height: 62px;
-  padding: 8px 9px;
+  padding: 8px 10px;
 
-  border: 2px solid #abdabc;
+  border: 2px solid #acd9bb;
   border-radius: 13px;
+  background: #e9f9ee;
 
-  background: #e8f9ed;
   color: #1b7444;
-
   font-size: 22px;
   font-weight: 800;
-
-  transition: 0.2s ease;
 }
 
 .grade:hover {
-  background: #c7ebd1;
-  transform: translateY(-2px);
+  background: #c9ebd3;
 }
 
 .grade.selected {
   color: white;
-  background: #218a4e;
-  border-color: #156c3d;
+  background: #21894c;
+  border-color: #16683a;
 }
 
 .feedback {
-  padding: 17px;
   margin-top: 16px;
-
+  padding: 17px;
   border-radius: 13px;
-  background: #e2f6e7;
-  color: #176c3d;
-
-  font-weight: 800;
+  background: #e1f7e7;
+  color: #166b3a;
   font-size: 19px;
+  font-weight: 800;
 }
 
 .rubric {
-  background: #eaf8ed;
-  border-radius: 13px;
   padding: 18px;
-
+  border-radius: 13px;
+  background: #eaf8ed;
+  color: #315b40;
   line-height: 1.9;
   font-size: 15px;
 }
 
-/* =========================================
+/* ===========================================
    ҚОРЫТЫНДЫ
-========================================= */
+=========================================== */
 
 .final {
   text-align: center;
 }
 
 .final h1 span {
-  color: #1e8d4b;
+  color: #218c4d;
 }
 
 .results {
-  margin: 30px 0;
-
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3,minmax(0,1fr));
   gap: 17px;
+  margin: 30px 0;
 }
 
 .results b {
@@ -891,30 +819,25 @@ h3 {
   font-size: 52px;
 }
 
-/* ҚОРЫТЫНДЫНЫҢ БАТЫРМАЛАРЫ */
-
 .final .actions {
   justify-content: flex-end !important;
 }
 
-/* =========================================
-   FOOTER
-========================================= */
+/* ===========================================
+   ТӨМЕНГІ БӨЛІМ
+=========================================== */
 
 .footer {
-  position: relative;
-  z-index: 1;
-
   max-width: 1500px;
   padding: 20px 24px;
-  margin: 0 auto;
+  margin: auto;
 
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 13px;
 
-  color: #386248;
+  color: #3e664d;
   font-size: 12px;
 }
 
@@ -923,27 +846,25 @@ h3 {
 }
 
 .page-enter {
-  animation: appear 0.45s ease both;
+  animation: pageEnter .45s ease both;
 }
 
-@keyframes appear {
+@keyframes pageEnter {
   from {
     opacity: 0;
     transform: translateY(16px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* =========================================
-   ТЕЛЕФОНҒА БЕЙІМДЕУ
-========================================= */
+/* ===========================================
+   ТЕЛЕФОН НҰСҚАСЫ
+=========================================== */
 
 @media (max-width: 1000px) {
-
   .hero,
   .game-grid {
     grid-template-columns: 1fr;
@@ -952,14 +873,12 @@ h3 {
   .hero-image {
     height: 360px;
   }
-
 }
 
 @media (max-width: 720px) {
-
   .header {
-    padding: 10px;
-    gap: 7px;
+    padding: 9px;
+    gap: 6px;
   }
 
   .navigation,
@@ -982,12 +901,11 @@ h3 {
   }
 
   #clock {
-    min-width: 53px;
     font-size: 17px;
   }
 
   .icon-button {
-    min-width: 35px;
+    min-width: 34px;
     padding: 8px;
   }
 
@@ -996,7 +914,7 @@ h3 {
   }
 
   #app {
-    padding: 20px 12px 35px;
+    padding: 19px 12px 35px;
   }
 
   .hero h1 {
@@ -1004,17 +922,22 @@ h3 {
     letter-spacing: -3px;
   }
 
+  .hero .actions {
+    justify-content: flex-end !important;
+  }
+
   .speech-text {
     font-size: 19px;
   }
 
-  .photo-grid {
+  .photo-grid,
+  .results {
     grid-template-columns: 1fr;
   }
 
   .photo {
-    height: 270px;
     min-height: 0;
+    height: 270px;
   }
 
   .team-board {
@@ -1053,21 +976,16 @@ h3 {
   .grade {
     min-width: 52px;
     min-height: 53px;
+    padding: 7px;
     font-size: 17px;
   }
-
-  .results {
-    grid-template-columns: 1fr;
-  }
-
 }
 
-/* =========================================
-   АНИМАЦИЯНЫ АЗАЙТУ РЕЖИМІ
-========================================= */
+/* ===========================================
+   АНИМАЦИЯНЫ АЗАЙТУ
+=========================================== */
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
@@ -1078,5 +996,4 @@ h3 {
   .photo {
     opacity: 1;
   }
-
 }
