@@ -3,95 +3,100 @@
 <html lang="kk">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
-
-  <meta name="theme-color" content="#e6f8e8">
+  <meta name="theme-color" content="#e8f8ec">
 
   <title>Таза Қазақстан | BY DARKHAN</title>
 
   <link rel="preconnect"
         href="https://fonts.googleapis.com">
-
   <link rel="preconnect"
         href="https://fonts.gstatic.com"
         crossorigin>
-
   <link
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
-
   <script src="script.js" defer></script>
 </head>
 
 <body>
 
-  <!-- ЖАСЫЛ ТАБИҒАТ ФОНЫ -->
-  <div class="nature-background"></div>
+  <!-- Табиғат фоны -->
+  <div class="nature-bg" aria-hidden="true"></div>
 
-  <!-- ЖОҒАРҒЫ МӘЗІР -->
+  <!-- Жоғарғы тақырып -->
   <header class="header">
-
-    <button class="brand" onclick="showHome()">
+    <div class="brand">
       <span class="logo">✿</span>
-
-      <span class="brand-text">
+      <div>
         <strong>ТАЗА ҚАЗАҚСТАН</strong>
         <small>АШЫҚ ТӘРБИЕ САҒАТЫ · 1-КУРС</small>
-      </span>
-    </button>
-
-    <nav class="navigation">
-
-      <button onclick="showHome()">
-        Басты бет
-      </button>
-
-      <button onclick="showSlide(0)">
-        Түсіндірме
-      </button>
-
-      <button onclick="showGame(0)">
-        Командалық ойын
-      </button>
-
-    </nav>
-
-    <div class="header-tools">
-
-      <span id="phase">ТҮСІНДІРУ</span>
-
-      <strong id="clock">15:00</strong>
-
-      <button class="icon-button"
-              id="timerButton"
-              onclick="toggleTimer()"
-              title="Таймерді тоқтату немесе бастау">
-        ▶
-      </button>
-
-      <button class="icon-button"
-              onclick="toggleFullscreen()"
-              title="Толық экран">
-        ⛶
-      </button>
-
+      </div>
     </div>
 
+    <div class="header-right">
+      <span id="phaseLabel">ТҮСІНДІРУ</span>
+      <span id="clock">15:00</span>
+      <button class="timer-button"
+              id="timerButton"
+              onclick="toggleTimer()"
+              title="Таймерді басқару">
+        ▶
+      </button>
+    </div>
   </header>
 
-  <!-- БЕТТЕРДІ JAVASCRIPT АУЫСТЫРАДЫ -->
+  <!-- Барлық негізгі батырмалар оң жақта -->
+  <aside class="right-panel"
+         aria-label="Сайтты басқару">
+
+    <button class="rail-button"
+            onclick="showHome()"
+            title="Басты бет">
+      <span>⌂</span>
+      <small>Басты</small>
+    </button>
+
+    <button class="rail-button"
+            id="backButton"
+            onclick="goBack()"
+            title="Алдыңғы бет">
+      <span>←</span>
+      <small>Артқа</small>
+    </button>
+
+    <button class="rail-button primary"
+            id="nextButton"
+            onclick="goNext()"
+            title="Келесі бет">
+      <span>→</span>
+      <small>Келесі</small>
+    </button>
+
+    <button class="rail-button"
+            onclick="showGame(0)"
+            title="Командалық ойын">
+      <span>★</span>
+      <small>Ойын</small>
+    </button>
+
+    <button class="rail-button"
+            onclick="toggleFullscreen()"
+            title="Толық экран">
+      <span>⛶</span>
+      <small>Экран</small>
+    </button>
+
+  </aside>
+
+  <!-- Сайттың барлық беттері осы жерде -->
   <main id="app"></main>
 
-  <!-- АВТОР -->
   <footer class="footer">
-    <span>
-      ТАБИҒАТ · ТАЗАЛЫҚ · ЖАУАПКЕРШІЛІК
-    </span>
-
+    <span>ТАБИҒАТ · ТАЗАЛЫҚ · ЖАУАПКЕРШІЛІК</span>
     <strong>BY DARKHAN</strong>
   </footer>
 
