@@ -1,17 +1,20 @@
 
-/* =====================================
+/* =========================================
    ТАЗА ҚАЗАҚСТАН
-   DESIGN BY DARKHAN
-===================================== */
+   ЖАСЫЛ ТАБИҒАТ · ТАУ · ОРМАН
+   БАРЛЫҚ БАСҚАРУ БАТЫРМАЛАРЫ ОҢ ЖАҚТА
+   BY DARKHAN
+========================================= */
 
 :root {
   --dark: #143d29;
   --green: #228b50;
   --green-light: #42b877;
+  --green-soft: #e7f9ec;
   --white: #ffffff;
   --muted: #527260;
-  --line: rgba(25, 98, 54, 0.17);
-  --shadow: 0 22px 55px rgba(12, 67, 31, .17);
+  --border: rgba(25, 98, 54, 0.17);
+  --shadow: 0 22px 55px rgba(12, 67, 31, 0.17);
 }
 
 * {
@@ -29,9 +32,11 @@ body {
   color: var(--dark);
   font-family: Manrope, Arial, sans-serif;
   font-weight: 700;
+  -webkit-font-smoothing: antialiased;
 }
 
-button, a {
+button,
+a {
   font: inherit;
 }
 
@@ -49,9 +54,9 @@ a:focus-visible {
   display: none !important;
 }
 
-/* =====================================
+/* =========================================
    ЖАРЫҚ ЖАСЫЛ ТАБИҒАТ ФОНЫ
-===================================== */
+========================================= */
 
 .nature-background {
   position: fixed;
@@ -62,16 +67,21 @@ a:focus-visible {
   background:
     linear-gradient(
       120deg,
-      rgba(238, 255, 236, .47),
-      rgba(206, 246, 216, .22)
+      rgba(238, 255, 236, 0.38),
+      rgba(206, 246, 216, 0.18)
     ),
-    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=90")
+    url(
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=90"
+    )
     center center / cover no-repeat;
 }
 
-/* =====================================
-   HEADER
-===================================== */
+/* Егер сыртқы фото жүктелмесе,
+   жасыл түсті негізгі фон сақталады. */
+
+/* =========================================
+   ЖОҒАРҒЫ МӘЗІР
+========================================= */
 
 .header {
   position: sticky;
@@ -80,16 +90,23 @@ a:focus-visible {
 
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 15px;
 
   min-height: 80px;
   padding: 12px 3%;
 
-  background: rgba(255,255,255,.95);
+  background: rgba(255,255,255,0.95);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
-  box-shadow: 0 5px 25px rgba(10,70,30,.10);
+
+  border-bottom: 1px solid var(--border);
+
+  box-shadow:
+    0 5px 25px rgba(10,70,30,0.10);
 }
+
+/* Логотип сол жақта қалады.
+   Басқару батырмалары оң жақта. */
 
 .brand {
   border: 0;
@@ -100,6 +117,7 @@ a:focus-visible {
   display: flex;
   align-items: center;
   gap: 12px;
+
   text-align: left;
   color: var(--dark);
 }
@@ -107,13 +125,17 @@ a:focus-visible {
 .logo {
   display: grid;
   place-items: center;
+
   width: 48px;
   height: 48px;
   flex-shrink: 0;
 
   border-radius: 14px;
   color: #e6ffad;
-  background: linear-gradient(135deg,#32a865,#176f3b);
+
+  background:
+    linear-gradient(135deg,#32a865,#176f3b);
+
   font-size: 30px;
 }
 
@@ -131,10 +153,21 @@ a:focus-visible {
   font-weight: 800;
 }
 
-.navigation,
+/* Жоғарғы навигация */
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+
+  margin-left: auto;
+}
+
 .header-tools {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 8px;
 }
 
@@ -146,14 +179,15 @@ a:focus-visible {
 
   border-radius: 11px;
   padding: 11px 13px;
-  font-weight: 800;
 
-  transition: .2s;
+  font-weight: 800;
+  transition: 0.2s ease;
 }
 
 .navigation button:hover,
 .icon-button:hover {
   background: #d8f1df;
+  transform: translateY(-1px);
 }
 
 .icon-button {
@@ -175,9 +209,9 @@ a:focus-visible {
   font-variant-numeric: tabular-nums;
 }
 
-/* =====================================
+/* =========================================
    НЕГІЗГІ БӨЛІМ
-===================================== */
+========================================= */
 
 #app,
 .footer {
@@ -188,6 +222,7 @@ a:focus-visible {
 #app {
   max-width: 1500px;
   min-height: calc(100vh - 150px);
+
   margin: 0 auto;
   padding: 30px 24px 45px;
 }
@@ -199,60 +234,75 @@ a:focus-visible {
   letter-spacing: 1.6px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 800;
 }
 
 h1 {
   margin: 13px 0 22px;
-  font-size: clamp(35px,4.2vw,64px);
+  font-size: clamp(35px, 4.2vw, 64px);
   line-height: 1.16;
 }
 
 h2 {
   color: #20824b;
-  font-size: clamp(26px,3vw,42px);
+  font-size: clamp(26px, 3vw, 42px);
+}
+
+h3 {
+  color: #1e7342;
 }
 
 .card {
-  padding: clamp(24px,3.3vw,48px);
+  padding: clamp(24px, 3.3vw, 48px);
+
   border-radius: 27px;
-  background: rgba(255,255,255,.95);
-  border: 1px solid rgba(255,255,255,.98);
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(255,255,255,0.98);
+
   backdrop-filter: blur(7px);
   box-shadow: var(--shadow);
 }
 
-.row,
-.actions,
-.controls {
+.row {
   display: flex;
   align-items: center;
-  gap: 13px;
-  flex-wrap: wrap;
-}
-
-.row,
-.controls {
   justify-content: space-between;
-}
-
-.actions,
-.controls {
-  margin-top: 23px;
+  flex-wrap: wrap;
+  gap: 13px;
 }
 
 .chip {
   display: inline-block;
   padding: 9px 16px;
-  border-radius: 99px;
 
+  border-radius: 99px;
   background: #e8f9ed;
   border: 1px solid #a9daba;
-  color: #1e7442;
 
+  color: #1e7442;
   font-size: 13px;
   font-weight: 800;
+}
+
+/* =========================================
+   БАРЛЫҚ НЕГІЗГІ БАТЫРМАЛАР ОҢ ЖАҚТА
+========================================= */
+
+.actions,
+.controls {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end !important;
+
+  flex-wrap: wrap;
+  gap: 13px;
+
+  width: 100%;
+  margin-top: 23px;
 }
 
 .btn {
@@ -266,67 +316,108 @@ h2 {
 
   border-radius: 14px;
   border: 1px solid #b6dac3;
-  background: white;
 
+  background: white;
   color: #1b6540;
+
   text-decoration: none;
   font-weight: 800;
   font-size: 15px;
 
-  transition: .2s;
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .btn:hover:not(:disabled) {
   background: #e3f7e9;
   transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(18,94,45,0.10);
 }
 
 .btn.primary {
-  background: linear-gradient(120deg,#43b875,#1d834b);
+  background:
+    linear-gradient(120deg,#43b875,#1d834b);
+
   color: white;
   border-color: #238e50;
-  box-shadow: 0 9px 23px rgba(25,128,69,.18);
+
+  box-shadow:
+    0 9px 23px rgba(25,128,69,0.18);
+}
+
+.btn.primary:hover:not(:disabled) {
+  background:
+    linear-gradient(120deg,#38a66a,#176e3d);
 }
 
 .btn:disabled {
-  opacity: .55;
+  opacity: 0.55;
   cursor: default;
   transform: none;
 }
 
+/* Артқа және келесі батырмалары */
+
+.controls {
+  justify-content: flex-end !important;
+}
+
+.controls .btn:first-child {
+  order: 1;
+}
+
+.controls .btn:last-child {
+  order: 2;
+}
+
+/* =========================================
+   ПРОГРЕСС
+========================================= */
+
 .progress {
   height: 9px;
   margin: 17px 0 24px;
+
   overflow: hidden;
-  background: rgba(255,255,255,.83);
+  background: rgba(255,255,255,0.83);
   border-radius: 99px;
 }
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg,#8fe0a9,#1f9252);
+
+  background:
+    linear-gradient(90deg,#8fe0a9,#1f9252);
+
   border-radius: 99px;
-  transition: width .3s;
+  transition: width 0.3s;
 }
 
-/* =====================================
+/* =========================================
    БАСТЫ БЕТ
-===================================== */
+========================================= */
 
 .hero {
   min-height: 73vh;
+
   display: grid;
-  grid-template-columns: 1.05fr .95fr;
+  grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
   gap: 38px;
 }
 
 .hero h1 {
-  font-size: clamp(60px,7.8vw,122px);
+  font-size: clamp(60px, 7.8vw, 122px);
   font-weight: 800;
   letter-spacing: -4px;
   line-height: 1.05;
-  text-shadow: 0 3px 18px rgba(255,255,255,.85);
+
+  text-shadow:
+    0 3px 18px rgba(255,255,255,0.85);
 }
 
 .hero h1 span {
@@ -335,19 +426,28 @@ h2 {
 
 .hero p {
   max-width: 680px;
-  font-size: clamp(19px,1.8vw,26px);
+
+  font-size: clamp(19px, 1.8vw, 26px);
   line-height: 1.8;
   font-weight: 800;
-  text-shadow: 0 2px 12px rgba(255,255,255,.85);
+
+  text-shadow:
+    0 2px 12px rgba(255,255,255,0.85);
+}
+
+.hero .actions {
+  justify-content: flex-end !important;
 }
 
 .hero-image {
   position: relative;
   height: 500px;
+
   overflow: hidden;
   border-radius: 28px;
   border: 5px solid white;
   background: #b9e1c5;
+
   box-shadow: var(--shadow);
 }
 
@@ -356,7 +456,9 @@ h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: slowZoom 22s ease-in-out infinite alternate;
+
+  animation:
+    slowZoom 22s ease-in-out infinite alternate;
 }
 
 .hero-quote {
@@ -366,10 +468,17 @@ h2 {
   right: 0;
 
   padding: 50px 27px 27px;
-  background: linear-gradient(0deg,rgba(5,42,22,.88),transparent);
+
+  background:
+    linear-gradient(
+      0deg,
+      rgba(5,42,22,0.88),
+      transparent
+    );
+
   color: white;
 
-  font-size: clamp(27px,2.7vw,41px);
+  font-size: clamp(27px, 2.7vw, 41px);
   font-weight: 800;
   line-height: 1.4;
 }
@@ -378,6 +487,7 @@ h2 {
   display: flex;
   gap: 28px;
   flex-wrap: wrap;
+
   margin-top: 27px;
 }
 
@@ -392,9 +502,9 @@ h2 {
   font-size: 13px;
 }
 
-/* =====================================
+/* =========================================
    ТҮСІНДІРМЕ
-===================================== */
+========================================= */
 
 .speech-card {
   border-top: 7px solid #38af6a;
@@ -404,14 +514,16 @@ h2 {
   color: #23894d;
   font-size: 14px;
   font-weight: 800;
-  letter-spacing: .8px;
+  letter-spacing: 0.8px;
 }
 
 .speech-text {
   min-height: 120px;
+
   color: #193f2c;
-  font-size: clamp(21px,1.8vw,28px);
+  font-size: clamp(21px, 1.8vw, 28px);
   line-height: 1.85;
+
   white-space: pre-line;
   overflow-wrap: anywhere;
   font-weight: 800;
@@ -420,53 +532,72 @@ h2 {
 .typing::after {
   content: "▌";
   color: #2fa25e;
-  animation: blink .8s step-end infinite;
+  animation: blink 0.8s step-end infinite;
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
 
-/* =====================================
+/* МӘТІНДІ ТОЛЫҚ АШУ — ОҢ ЖАҚТА */
+
+.speech-card .actions {
+  justify-content: flex-end !important;
+}
+
+#showText {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* =========================================
    ФОТОГАЛЕРЕЯ
-===================================== */
+========================================= */
 
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
+  grid-template-columns: repeat(3, minmax(0,1fr));
   gap: 18px;
 }
 
 .photo {
   min-width: 0;
-  height: min(69vh,650px);
+  height: min(69vh, 650px);
   min-height: 340px;
 
   overflow: hidden;
   border-radius: 25px;
   border: 5px solid white;
+
   background: #c9e8d2;
   box-shadow: var(--shadow);
 
   opacity: 0;
-  animation: photoEnter .8s ease forwards;
-  animation-delay: calc(var(--i) * .28s);
+
+  animation: photoEnter 0.8s ease forwards;
+  animation-delay: calc(var(--i) * 0.28s);
 }
 
 .photo img {
   display: block;
   width: 100%;
   height: 100%;
+
   object-fit: cover;
-  animation: slowZoom 20s ease-in-out infinite alternate;
+
+  animation:
+    slowZoom 20s ease-in-out infinite alternate;
 }
 
 @keyframes photoEnter {
   from {
     opacity: 0;
-    transform: translateY(40px) scale(.93);
+    transform: translateY(40px) scale(0.93);
     filter: blur(7px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -475,13 +606,18 @@ h2 {
 }
 
 @keyframes slowZoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.075); }
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.075);
+  }
 }
 
-/* =====================================
+/* =========================================
    БЕЙНЕБӨЛІМ
-===================================== */
+========================================= */
 
 .video-card {
   max-width: 1050px;
@@ -490,15 +626,19 @@ h2 {
 
 .video-screen {
   aspect-ratio: 16/9;
+
   border: 4px solid #79c997;
   border-radius: 19px;
+
   background: #164a30;
   overflow: hidden;
+
   display: grid;
   place-items: center;
 }
 
-.video-screen iframe {
+.video-screen iframe,
+.video-screen video {
   width: 100%;
   height: 100%;
   display: block;
@@ -524,27 +664,43 @@ h2 {
 .note {
   margin: 19px 0;
   padding: 19px 23px;
+
   border-radius: 13px;
   border-left: 5px solid #37ae67;
   background: #e8f9eb;
+
   font-size: 19px;
   line-height: 1.75;
   font-weight: 800;
 }
 
-/* =====================================
+/* ВИДЕО БАТЫРМАЛАРЫ ОҢ ЖАҚТА */
+
+.video-card .actions {
+  display: flex !important;
+  justify-content: flex-end !important;
+  width: 100%;
+}
+
+.video-card .actions .btn {
+  width: auto;
+}
+
+/* =========================================
    ОЙЫН КОМАНДАЛАРЫ
-===================================== */
+========================================= */
 
 .team-board {
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
   gap: 14px;
+
   margin-bottom: 22px;
 }
 
 .team {
   padding: 19px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -572,13 +728,13 @@ h2 {
   color: #208a4d;
 }
 
-/* =====================================
+/* =========================================
    ОЙЫН СҰРАҚТАРЫ
-===================================== */
+========================================= */
 
 .game-grid {
   display: grid;
-  grid-template-columns: 1.32fr .68fr;
+  grid-template-columns: 1.32fr 0.68fr;
   gap: 21px;
 }
 
@@ -594,6 +750,21 @@ h2 {
   color: var(--muted);
 }
 
+/* ЖАУАПТЫ КӨРУ — ОҢ ЖАҚТА */
+
+.game-grid > .card:first-child > .btn {
+  display: flex !important;
+  width: fit-content !important;
+  max-width: 100%;
+
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* =========================================
+   ҮЛГІ ЖАУАП
+========================================= */
+
 .answer-card {
   margin-top: 20px;
   padding: 22px;
@@ -602,7 +773,7 @@ h2 {
   border: 2px solid #a5dcb5;
   background: #e7f9ed;
 
-  animation: appear .4s ease both;
+  animation: appear 0.4s ease both;
 }
 
 .answer-card h3 {
@@ -613,33 +784,58 @@ h2 {
 
 .answer-card p {
   margin: 0 0 16px;
+
   white-space: pre-line;
   font-size: clamp(18px,1.5vw,24px);
   line-height: 1.75;
   font-weight: 800;
 }
 
+/* ЖАУАПТЫ ЖАСЫРУ — ОҢ ЖАҚТА */
+
+.answer-card .btn {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* =========================================
+   ҰПАЙ ҚОЮ — ОҢ ЖАҚТА
+========================================= */
+
 .grades {
-  display: grid;
-  grid-template-columns: repeat(5,minmax(0,1fr));
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center;
+  flex-wrap: wrap;
+
   gap: 9px;
   margin-top: 16px;
 }
 
 .grade {
+  min-width: 66px;
   min-height: 62px;
-  padding: 8px 4px;
+  padding: 8px 9px;
+
   border: 2px solid #abdabc;
   border-radius: 13px;
 
   background: #e8f9ed;
   color: #1b7444;
+
   font-size: 22px;
   font-weight: 800;
+
+  transition: 0.2s ease;
 }
 
 .grade:hover {
   background: #c7ebd1;
+  transform: translateY(-2px);
 }
 
 .grade.selected {
@@ -651,9 +847,11 @@ h2 {
 .feedback {
   padding: 17px;
   margin-top: 16px;
+
   border-radius: 13px;
   background: #e2f6e7;
   color: #176c3d;
+
   font-weight: 800;
   font-size: 19px;
 }
@@ -662,13 +860,14 @@ h2 {
   background: #eaf8ed;
   border-radius: 13px;
   padding: 18px;
+
   line-height: 1.9;
   font-size: 15px;
 }
 
-/* =====================================
+/* =========================================
    ҚОРЫТЫНДЫ
-===================================== */
+========================================= */
 
 .final {
   text-align: center;
@@ -680,6 +879,7 @@ h2 {
 
 .results {
   margin: 30px 0;
+
   display: grid;
   grid-template-columns: repeat(3,1fr);
   gap: 17px;
@@ -691,11 +891,20 @@ h2 {
   font-size: 52px;
 }
 
-/* =====================================
+/* ҚОРЫТЫНДЫНЫҢ БАТЫРМАЛАРЫ */
+
+.final .actions {
+  justify-content: flex-end !important;
+}
+
+/* =========================================
    FOOTER
-===================================== */
+========================================= */
 
 .footer {
+  position: relative;
+  z-index: 1;
+
   max-width: 1500px;
   padding: 20px 24px;
   margin: 0 auto;
@@ -714,7 +923,7 @@ h2 {
 }
 
 .page-enter {
-  animation: appear .45s ease both;
+  animation: appear 0.45s ease both;
 }
 
 @keyframes appear {
@@ -722,17 +931,19 @@ h2 {
     opacity: 0;
     transform: translateY(16px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* =====================================
+/* =========================================
    ТЕЛЕФОНҒА БЕЙІМДЕУ
-===================================== */
+========================================= */
 
 @media (max-width: 1000px) {
+
   .hero,
   .game-grid {
     grid-template-columns: 1fr;
@@ -741,9 +952,11 @@ h2 {
   .hero-image {
     height: 360px;
   }
+
 }
 
 @media (max-width: 720px) {
+
   .header {
     padding: 10px;
     gap: 7px;
@@ -776,6 +989,10 @@ h2 {
   .icon-button {
     min-width: 35px;
     padding: 8px;
+  }
+
+  .header-tools {
+    margin-left: auto;
   }
 
   #app {
@@ -817,11 +1034,24 @@ h2 {
     font-size: 25px;
   }
 
+  .actions,
+  .controls {
+    justify-content: flex-end !important;
+    gap: 8px;
+  }
+
+  .btn {
+    padding: 11px 15px;
+    font-size: 13px;
+  }
+
   .grades {
+    justify-content: flex-end !important;
     gap: 5px;
   }
 
   .grade {
+    min-width: 52px;
     min-height: 53px;
     font-size: 17px;
   }
@@ -829,9 +1059,15 @@ h2 {
   .results {
     grid-template-columns: 1fr;
   }
+
 }
 
+/* =========================================
+   АНИМАЦИЯНЫ АЗАЙТУ РЕЖИМІ
+========================================= */
+
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -842,4 +1078,5 @@ h2 {
   .photo {
     opacity: 1;
   }
+
 }
