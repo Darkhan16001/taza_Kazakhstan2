@@ -1,955 +1,339 @@
 
-/* ====================================
-   ТАЗА ҚАЗАҚСТАН
-   BY DARKHAN
-   RIGHT-SIDE CONTROL DESIGN
-==================================== */
-
 :root {
-  --dark: #153e2a;
-  --green: #21884d;
-  --green2: #37b46a;
-  --light: #e9f9ee;
-  --muted: #5c7966;
-  --line: #cee9d5;
-  --shadow: 0 18px 55px rgba(14,65,35,.16);
-  --rail-width: 84px;
+  --primary: #16a34a;
+  --primary-dark: #166534;
+  --bg: #06151f;
+  --text: #ffffff;
+  --muted: #cbd5e1;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: Manrope, Arial, sans-serif;
-  font-weight: 700;
-  color: var(--dark);
-  background: #d9f0df;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
-button, a, input {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-button:disabled {
-  cursor: default;
-  opacity: .48;
-}
-
-button:focus-visible,
-a:focus-visible {
-  outline: 3px solid #257e4c;
-  outline-offset: 3px;
-}
-
-[hidden] {
-  display: none !important;
-}
-
-/* ====================================
-   ТАБИҒАТ ФОНЫ
-==================================== */
-
-.nature-bg {
+.background-effect {
   position: fixed;
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(
-      120deg,
-      rgba(241,255,239,.62),
-      rgba(216,248,224,.30)
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(22, 163, 74, .20),
+      transparent 40%
     ),
-    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=85")
-    center center / cover no-repeat;
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(37, 99, 235, .17),
+      transparent 40%
+    ),
+    #06151f;
 }
 
-/* ====================================
-   HEADER
-==================================== */
-
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  min-height: 79px;
+.topbar {
+  min-height: 75px;
+  padding: 16px 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  padding: 12px calc(var(--rail-width) + 26px)
-           12px 30px;
-  background: rgba(255,255,255,.94);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
-  box-shadow: 0 5px 20px rgba(12,75,31,.08);
+  border-bottom: 1px solid #ffffff20;
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo {
-  width: 47px;
-  height: 47px;
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  border-radius: 14px;
-  background: #20894d;
-  color: #e6ffb4;
-  font-size: 28px;
-}
-
-.brand strong {
-  display: block;
   font-size: 19px;
   font-weight: 800;
 }
 
-.brand small {
-  display: block;
-  margin-top: 4px;
-  font-size: 10px;
-  color: #64816c;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-#phaseLabel {
-  color: #68806f;
-  font-size: 11px;
-  font-weight: 800;
-}
-
-#clock {
-  min-width: 74px;
+.timer {
+  padding: 10px 22px;
+  border: 1px solid #ffffff40;
+  border-radius: 15px;
+  background: #ffffff12;
   font-size: 24px;
-  color: #20844b;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
 }
 
-.timer-button {
-  width: 43px;
-  height: 43px;
-  border-radius: 12px;
-  border: 1px solid #cce7d4;
-  background: #eaf8ed;
-  color: #1a7944;
-  font-size: 18px;
-}
-
-/* ====================================
-   ОҢ ЖАҚТАҒЫ ТҰРАҚТЫ ПАНЕЛЬ
-==================================== */
-
-.right-panel {
-  position: fixed;
-  top: 50%;
-  right: 13px;
-  transform: translateY(-50%);
-  z-index: 100;
-
-  width: var(--rail-width);
-  padding: 9px 7px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 9px;
-
-  background: rgba(255,255,255,.97);
-  border: 1px solid #c8e4d0;
-  border-radius: 23px;
-
-  box-shadow:
-    0 15px 40px rgba(10,62,34,.20);
-}
-
-.rail-button {
-  width: 100%;
-  min-height: 68px;
-  padding: 8px 4px;
-  border: 1px solid #d0e6d7;
-  border-radius: 15px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-
-  background: #eff9f1;
-  color: #256b45;
-
-  transition:
-    background .2s ease,
-    transform .2s ease;
-}
-
-.rail-button:hover:not(:disabled) {
-  background: #d9f3e1;
-  transform: translateX(-3px);
-}
-
-.rail-button.primary {
-  background: #238c50;
-  border-color: #238c50;
-  color: white;
-}
-
-.rail-button.primary:hover:not(:disabled) {
-  background: #176d3d;
-}
-
-.rail-button span {
-  font-size: 26px;
-  line-height: 1;
-  font-weight: 800;
-}
-
-.rail-button small {
-  font-size: 11px;
-  font-weight: 800;
-}
-
-/* ====================================
-   НЕГІЗГІ БЕТ
-==================================== */
-
-#app {
-  position: relative;
-  z-index: 1;
-
-  max-width: 1550px;
-  min-height: calc(100vh - 145px);
-
+main {
+  max-width: 1150px;
   margin: 0 auto;
-  padding:
-    30px
-    calc(var(--rail-width) + 40px)
-    50px
-    30px;
+  padding: 35px 24px 130px;
 }
 
-.eyebrow {
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  color: #21814b;
+.slide {
+  animation: appear .35s ease;
 }
 
-h1, h2, h3 {
-  font-weight: 800;
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-h1 {
-  font-size: clamp(35px,4.2vw,62px);
-  line-height: 1.16;
-  margin: 12px 0 23px;
-}
-
-h2 {
-  color: #1e8249;
-  font-size: clamp(27px,2.9vw,42px);
-}
-
-h3 {
-  color: #246b45;
-}
-
-.card {
-  padding: clamp(23px,3.2vw,48px);
-  border-radius: 25px;
-  border: 1px solid rgba(255,255,255,.94);
-  background: rgba(255,255,255,.95);
-  backdrop-filter: blur(7px);
-  box-shadow: var(--shadow);
-}
-
-.chip {
-  display: inline-block;
-  padding: 9px 15px;
-  border-radius: 99px;
-  background: #e7f9ed;
-  border: 1px solid #aaddbb;
-  color: #217548;
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.progress {
-  height: 9px;
-  margin: 18px 0 24px;
-  background: rgba(255,255,255,.85);
-  border-radius: 99px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(
-    90deg,#9cebb1,#218f52
-  );
-  transition: width .3s;
-}
-
-/* ====================================
-   ӘР БЕТТЕГІ ҚОСЫМША БАТЫРМАЛАР
-   ОҢ ЖАҚТА
-==================================== */
-
-.actions,
-.controls {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  width: 100%;
-  margin-top: 24px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 52px;
-  padding: 12px 22px;
-
-  border: 1px solid #b8dfc5;
-  border-radius: 13px;
-
-  background: white;
-  color: #19663e;
-  text-decoration: none;
-
-  font-size: 15px;
-  font-weight: 800;
-
-  transition: .2s;
-}
-
-.btn:hover:not(:disabled) {
-  background: #e0f6e7;
-  transform: translateY(-2px);
-}
-
-.btn.primary {
-  color: white;
-  background: linear-gradient(
-    120deg,#41b674,#208249
-  );
-  border-color: #23874d;
-}
-
-.btn.primary:hover:not(:disabled) {
-  background: #176d3b;
-}
-
-/* ====================================
-   БАСТЫ БЕТ
-==================================== */
 
 .hero {
-  min-height: 72vh;
-  display: grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap: 35px;
-  align-items: center;
+  text-align: center;
+  padding: 24px 10px;
 }
 
 .hero h1 {
-  font-size: clamp(58px,7vw,111px);
-  line-height: 1.06;
-  letter-spacing: -3px;
-  text-shadow: 0 3px 17px #ffffffbb;
-}
-
-.hero h1 span {
-  color: #218b4b;
-}
-
-.hero p {
-  font-size: clamp(19px,1.8vw,25px);
-  line-height: 1.75;
-  text-shadow: 0 2px 10px #ffffffbb;
-}
-
-.hero-image {
-  position: relative;
-  height: 470px;
-  border-radius: 27px;
-  border: 5px solid white;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  background: #b2e2c1;
-}
-
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: slowZoom 22s ease-in-out
-             infinite alternate;
-}
-
-.hero-quote {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 48px 26px 26px;
-  color: white;
-  background: linear-gradient(
-    0deg,#07351edb,transparent
-  );
-  font-size: clamp(25px,2.4vw,38px);
-  font-weight: 800;
-  line-height: 1.4;
-}
-
-.stats {
-  display: flex;
-  gap: 25px;
-  flex-wrap: wrap;
-  margin-top: 26px;
-}
-
-.stats b {
-  display: block;
-  color: #1d874b;
-  font-size: 35px;
-}
-
-.stats small {
-  color: #476c53;
-  font-size: 13px;
-}
-
-/* ====================================
-   ТҮСІНДІРМЕ
-==================================== */
-
-.speech-card {
-  border-top: 7px solid #38aa66;
-}
-
-.presenter {
-  color: #29824e;
-  letter-spacing: .7px;
-  font-size: 14px;
-  font-weight: 800;
-}
-
-.speech-text {
-  min-height: 120px;
-  color: #173e29;
-  font-size: clamp(21px,1.8vw,28px);
-  font-weight: 800;
-  line-height: 1.85;
-  white-space: pre-line;
-  overflow-wrap: anywhere;
-}
-
-.typing::after {
-  content: "▌";
-  color: #24a459;
-  animation: blink .8s step-end infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
-/* ====================================
-   ФОТОГАЛЕРЕЯ
-==================================== */
-
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
-  gap: 17px;
-}
-
-.photo {
-  height: min(65vh,600px);
-  min-width: 0;
-  min-height: 320px;
-  border: 5px solid white;
-  border-radius: 25px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  background: #b4ddc3;
-
-  opacity: 0;
-  animation: photoEnter .7s ease forwards;
-  animation-delay: calc(var(--i)*.22s);
-}
-
-.photo img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  animation: slowZoom 20s ease-in-out
-             infinite alternate;
-}
-
-@keyframes photoEnter {
-  from {
-    opacity: 0;
-    transform: translateY(35px) scale(.94);
-    filter: blur(6px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-    filter: none;
-  }
-}
-
-@keyframes slowZoom {
-  to { transform: scale(1.07); }
-}
-
-/* ====================================
-   ВИДЕО
-==================================== */
-
-.video-card {
-  max-width: 1050px;
-  margin: auto;
-}
-
-.video-screen {
-  aspect-ratio: 16/9;
-  border-radius: 19px;
-  overflow: hidden;
-  border: 4px solid #78c592;
-  background: #134b2e;
-  display: grid;
-  place-items: center;
-}
-
-.video-screen iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-}
-
-.video-poster {
-  text-align: center;
-  padding: 22px;
-  color: white;
-}
-
-.video-poster b {
-  display: block;
-  color: #ddffbc;
-  font-size: 74px;
-}
-
-.video-poster h2 {
-  color: white;
-}
-
-.note {
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.15;
   margin: 18px 0;
-  padding: 19px 23px;
-  background: #e9f9ed;
-  border-left: 5px solid #36a966;
-  border-radius: 13px;
-  font-size: 18px;
-  line-height: 1.75;
-  font-weight: 800;
 }
 
-/* ====================================
-   КОМАНДАЛАР
-==================================== */
+.subtitle {
+  color: var(--muted);
+  font-size: 19px;
+}
 
-.team-board {
+.section-title {
+  font-size: clamp(28px, 4vw, 43px);
+  margin: 8px 0 25px;
+}
+
+.card {
+  padding: 28px;
+  margin: 20px 0;
+  background: rgba(255, 255, 255, .07);
+  border: 1px solid rgba(255, 255, 255, .17);
+  border-radius: 22px;
+  box-shadow: 0 10px 35px #00000020;
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #86efac;
+  font-size: 27px;
+}
+
+.card p,
+.card li {
+  font-size: clamp(18px, 2.1vw, 23px);
+  line-height: 1.7;
+}
+
+.card li {
+  margin-bottom: 12px;
+}
+
+.goal {
+  border-left: 5px solid var(--primary);
+}
+
+.goal ul {
+  padding-left: 25px;
+}
+
+.time-label {
+  display: inline-block;
+  color: #bbf7d0;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.answer {
+  display: none;
+  margin-top: 18px;
+  padding: 20px;
+  border-radius: 14px;
+  background: #14532d;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.answer.visible {
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  padding: 13px 22px;
+  border: none;
+  border-radius: 12px;
+  font: inherit;
+  font-weight: 750;
+  color: white;
+  background: var(--primary);
+  transition: .2s;
+}
+
+button:hover {
+  filter: brightness(1.15);
+}
+
+button:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+.action-row {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.secondary-btn {
+  background: #334155;
+}
+
+.team-grid {
   display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
-  gap: 13px;
-  margin-bottom: 22px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
 .team {
-  padding: 18px;
+  padding: 24px;
+  border-radius: 20px;
+  text-align: center;
+  background: #ffffff12;
+  border: 1px solid #ffffff25;
+}
+
+.team h3 {
+  font-size: 23px;
+}
+
+.score {
+  font-size: 48px;
+  font-weight: 900;
+  margin: 15px 0;
+  color: #86efac;
+}
+
+.score-controls {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 9px;
+  justify-content: center;
+  gap: 10px;
 }
 
-.team.active {
-  background: #e8f9ed;
-  outline: 3px solid #39aa69;
-}
-
-.team small {
-  display: block;
-  color: #69816f;
-  font-size: 12px;
-}
-
-.team strong {
-  font-size: 19px;
-}
-
-.team-score {
-  font-size: 34px;
-  color: #21884d;
-  font-weight: 800;
-}
-
-/* ====================================
-   АУЫЗША ОЙЫН
-==================================== */
-
-.game-layout {
-  display: grid;
-  grid-template-columns: 1.35fr .65fr;
-  gap: 20px;
+.score-controls button {
+  padding: 10px 16px;
 }
 
 .question {
-  font-size: clamp(22px,1.9vw,30px);
-  line-height: 1.75;
-  font-weight: 800;
+  font-size: 25px;
+  line-height: 1.6;
+  font-weight: 650;
 }
 
-.hint {
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--muted);
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 22px;
 }
 
-.answer-card {
+.option {
+  text-align: left;
+  background: #1e293b;
+  border: 1px solid #64748b;
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.option.correct {
+  background: #166534;
+}
+
+.option.wrong {
+  background: #991b1b;
+}
+
+.result-message {
   margin-top: 20px;
-  padding: 22px;
-  background: #e7f9ec;
-  border: 2px solid #abdcb9;
-  border-radius: 17px;
+  font-size: 21px;
+  font-weight: 700;
 }
 
-.answer-card p {
-  white-space: pre-line;
-  font-size: clamp(18px,1.5vw,23px);
-  line-height: 1.75;
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 14px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background: rgba(6, 21, 31, .96);
+  border-top: 1px solid #ffffff25;
+  backdrop-filter: blur(15px);
 }
 
-.answer-card h3 {
-  margin-top: 0;
-  color: #20854a;
-}
-
-.grades {
+.navigation {
   display: flex;
   justify-content: flex-end;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 15px;
-}
-
-.grade {
-  min-width: 62px;
-  min-height: 54px;
-  padding: 8px;
-  border: 2px solid #add9bc;
-  border-radius: 12px;
-  background: #e9f9ee;
-  color: #196d40;
-  font-size: 19px;
-  font-weight: 800;
-}
-
-.grade:hover {
-  background: #ceefd8;
-}
-
-.grade.selected {
-  background: #20894d;
-  color: white;
-  border-color: #17663b;
-}
-
-.feedback {
-  margin-top: 16px;
-  padding: 16px;
-  border-radius: 12px;
-  background: #e3f8e8;
-  color: #166d3b;
-  font-size: 19px;
-  font-weight: 800;
-}
-
-.rubric {
-  padding: 17px;
-  border-radius: 13px;
-  background: #eef9f0;
-  line-height: 1.9;
-  font-size: 15px;
-}
-
-/* ====================================
-   ҚОРЫТЫНДЫ
-==================================== */
-
-.final {
-  text-align: center;
-}
-
-.final h1 span {
-  color: #218a4c;
-}
-
-.results {
-  display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
-  gap: 16px;
-  margin: 29px 0;
-}
-
-.results b {
-  display: block;
-  color: #21854b;
-  font-size: 49px;
-}
-
-.footer {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
   gap: 12px;
-
-  max-width: 1500px;
-  padding: 19px calc(var(--rail-width) + 40px)
-           19px 30px;
-  margin: auto;
-  color: #3f664d;
-  font-size: 12px;
 }
 
-.footer strong {
-  color: #178144;
+#backBtn {
+  background: #334155;
 }
 
-.page-enter {
-  animation: enter .35s ease both;
+.page-info {
+  color: #cbd5e1;
 }
 
-@keyframes enter {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+.finish {
+  text-align: center;
+  font-size: 30px;
 }
 
-/* ====================================
-   ТЕЛЕФОН ЖӘНЕ ПЛАНШЕТ
-==================================== */
-
-@media(max-width:1050px) {
-  .hero,
-  .game-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-image {
-    height: 350px;
-  }
+.highlight {
+  color: #86efac;
+  font-weight: 800;
 }
 
-@media(max-width:720px) {
-  :root {
-    --rail-width: 57px;
-  }
-
-  .header {
-    padding: 9px calc(var(--rail-width) + 17px)
-             9px 10px;
+@media (max-width: 700px) {
+  .topbar {
+    padding: 12px;
   }
 
   .brand {
-    gap: 6px;
+    font-size: 14px;
   }
 
-  .brand strong {
-    font-size: 12px;
-  }
-
-  .brand small,
-  #phaseLabel {
-    display: none;
-  }
-
-  .logo {
-    width: 35px;
-    height: 35px;
-    font-size: 23px;
-  }
-
-  #clock {
-    min-width: 51px;
-    font-size: 17px;
-  }
-
-  .timer-button {
-    width: 33px;
-    height: 35px;
-  }
-
-  .right-panel {
-    right: 5px;
-    padding: 6px 4px;
-    gap: 5px;
-    border-radius: 16px;
-  }
-
-  .rail-button {
-    min-height: 58px;
-    padding: 5px 2px;
-    border-radius: 12px;
-  }
-
-  .rail-button span {
-    font-size: 22px;
-  }
-
-  .rail-button small {
-    font-size: 9px;
-  }
-
-  #app {
-    padding:
-      20px
-      calc(var(--rail-width) + 13px)
-      35px
-      10px;
-  }
-
-  h1 {
-    font-size: 31px;
-  }
-
-  .hero h1 {
-    font-size: clamp(39px,10vw,59px);
-    letter-spacing: -2px;
-  }
-
-  .hero p {
+  .timer {
     font-size: 18px;
   }
 
-  .speech-text {
-    font-size: 18px;
+  main {
+    padding: 22px 14px 120px;
   }
 
   .card {
-    padding: 17px;
-    border-radius: 18px;
+    padding: 20px;
   }
 
-  .photo-grid,
-  .results {
+  .team-grid,
+  .options {
     grid-template-columns: 1fr;
   }
 
-  .photo {
-    height: 235px;
-    min-height: 0;
+  .bottom-bar {
+    padding: 12px;
   }
 
-  .team-board {
-    gap: 5px;
+  .navigation button {
+    padding: 11px;
+    font-size: 13px;
   }
 
-  .team {
-    display: block;
-    padding: 9px 5px;
-  }
-
-  .team strong {
-    font-size: 11px;
-  }
-
-  .team small {
-    font-size: 9px;
-  }
-
-  .team-score {
-    font-size: 22px;
-  }
-
-  .actions,
-  .controls {
-    justify-content: flex-end;
-    gap: 7px;
-  }
-
-  .btn {
-    min-height: 44px;
-    padding: 9px 12px;
+  .page-info {
     font-size: 12px;
-  }
-
-  .grade {
-    min-width: 43px;
-    min-height: 45px;
-    font-size: 15px;
-    padding: 6px 4px;
-  }
-
-  .footer {
-    padding: 16px calc(var(--rail-width) + 13px)
-             16px 10px;
-  }
-}
-
-@media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {
-    animation: none !important;
-    transition: none !important;
-  }
-
-  .photo {
-    opacity: 1;
   }
 }
