@@ -5,100 +5,35 @@
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#e8f8ec">
 
-  <title>Таза Қазақстан | BY DARKHAN</title>
-
-  <link rel="preconnect"
-        href="https://fonts.googleapis.com">
-  <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
+  <title>Ашық тәрбие сағаты</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
-
 <body>
 
-  <!-- Табиғат фоны -->
-  <div class="nature-bg" aria-hidden="true"></div>
+  <div class="background-effect"></div>
 
-  <!-- Жоғарғы тақырып -->
-  <header class="header">
-    <div class="brand">
-      <span class="logo">✿</span>
-      <div>
-        <strong>ТАЗА ҚАЗАҚСТАН</strong>
-        <small>АШЫҚ ТӘРБИЕ САҒАТЫ · 1-КУРС</small>
-      </div>
-    </div>
-
-    <div class="header-right">
-      <span id="phaseLabel">ТҮСІНДІРУ</span>
-      <span id="clock">15:00</span>
-      <button class="timer-button"
-              id="timerButton"
-              onclick="toggleTimer()"
-              title="Таймерді басқару">
-        ▶
-      </button>
-    </div>
+  <header class="topbar">
+    <div class="brand">🇰🇿 Ашық тәрбие сағаты</div>
+    <div class="timer" id="timer">45:00</div>
   </header>
 
-  <!-- Барлық негізгі батырмалар оң жақта -->
-  <aside class="right-panel"
-         aria-label="Сайтты басқару">
-
-    <button class="rail-button"
-            onclick="showHome()"
-            title="Басты бет">
-      <span>⌂</span>
-      <small>Басты</small>
-    </button>
-
-    <button class="rail-button"
-            id="backButton"
-            onclick="goBack()"
-            title="Алдыңғы бет">
-      <span>←</span>
-      <small>Артқа</small>
-    </button>
-
-    <button class="rail-button primary"
-            id="nextButton"
-            onclick="goNext()"
-            title="Келесі бет">
-      <span>→</span>
-      <small>Келесі</small>
-    </button>
-
-    <button class="rail-button"
-            onclick="showGame(0)"
-            title="Командалық ойын">
-      <span>★</span>
-      <small>Ойын</small>
-    </button>
-
-    <button class="rail-button"
-            onclick="toggleFullscreen()"
-            title="Толық экран">
-      <span>⛶</span>
-      <small>Экран</small>
-    </button>
-
-  </aside>
-
-  <!-- Сайттың барлық беттері осы жерде -->
   <main id="app"></main>
 
-  <footer class="footer">
-    <span>ТАБИҒАТ · ТАЗАЛЫҚ · ЖАУАПКЕРШІЛІК</span>
-    <strong>BY DARKHAN</strong>
+  <footer class="bottom-bar">
+    <div class="page-info" id="pageInfo"></div>
+
+    <div class="navigation">
+      <button id="backBtn" onclick="previousPage()">
+        ← Артқа
+      </button>
+
+      <button id="nextBtn" onclick="nextPage()">
+        Келесі бет →
+      </button>
+    </div>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
